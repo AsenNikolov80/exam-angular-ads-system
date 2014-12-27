@@ -1,5 +1,18 @@
 body {
   margin: 0 auto;
   background-color: #c1efcb; }
+  body header, body footer {
+    text-align: center;
+    margin: 0 auto;
+    background-color: #4ad86a;
+    color: black; }
+  body header {
+    margin-bottom: 10px; }
+  body footer {
+    margin-top: 10px; }
+
+* {
+  box-sizing: border-box;
+  margin: 0 auto; }
 
 /*# sourceMappingURL=style.css.map */

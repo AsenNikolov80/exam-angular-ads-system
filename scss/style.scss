@@ -1,5 +1,21 @@
 body{
     margin: 0 auto;
     background-color: #c1efcb;
+    header,footer{
+        text-align: center;
+        margin: 0 auto;
+        background-color: #4ad86a;
+        color: black;
+    }
+    header{
+        margin-bottom: 10px;
+    }
+    footer{
+        margin-top: 10px;
+    }
+}
+*{
+    box-sizing: border-box;
+    margin: 0 auto;
 }
 
