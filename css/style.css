@@ -10,9 +10,12 @@ body {
     margin-bottom: 10px; }
   body footer {
     margin-top: 10px; }
+  body h1, body h2, body h3, body h4, body h5, body h6 {
+    margin: 0; }
+  body main {
+    padding: 10px; }
 
 * {
-  box-sizing: border-box;
-  margin: 0 auto; }
+  box-sizing: border-box; }
 
 /*# sourceMappingURL=style.css.map */

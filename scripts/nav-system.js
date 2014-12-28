@@ -1,1 +1,0 @@
-var nav = angular.module('NavSystem', ['ngRoute']);
