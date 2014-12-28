@@ -5,15 +5,37 @@ body {
     text-align: center;
     margin: 0 auto;
     background-color: #4ad86a;
-    color: black; }
+    color: black;
+    padding: 6px; }
   body header {
     margin-bottom: 10px; }
   body footer {
     margin-top: 10px; }
   body h1, body h2, body h3, body h4, body h5, body h6 {
-    margin: 0; }
+    margin: 0 auto; }
   body main {
     padding: 10px; }
+  body .button {
+    margin-bottom: 10px;
+    border-radius: 11px;
+    font-size: 20px; }
+  body nav {
+    text-align: center; }
+  body li {
+    width: 100%;
+    list-style-type: none;
+    padding: 3px; }
+  body .innerPanel {
+    padding: 0;
+    margin: 0; }
+  body .innerLi {
+    color: black;
+    font-size: 20px;
+    padding-left: 30px; }
+  body .adsDiv {
+    display: inline-block;
+    border: 1px solid black;
+    word-wrap: break-word; }
 
 * {
   box-sizing: border-box; }
