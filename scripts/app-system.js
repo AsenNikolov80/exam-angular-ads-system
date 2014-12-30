@@ -9,8 +9,17 @@ app.config(function ($routeProvider) {
     }).when('/register', {
         templateUrl: 'templates/register.html',
         controller: 'Register'
-    }).when('/secure', {
-        templateUrl: 'templates/secure.html',
+    }).when('/home/logged', {
+        templateUrl: 'templates/homeLogged.html',
+        controller: 'Secure'
+    }).when('/ads/logged',{
+        templateUrl: 'templates/adsLogged.html',
+        controller: 'Secure'
+    }).when('/publish/logged',{
+        templateUrl: 'templates/publishLogged.html',
+        controller: 'Secure'
+    }).when('/edit/logged',{
+        templateUrl: 'templates/editLogged.html',
         controller: 'Secure'
     })
             .otherwise('/');

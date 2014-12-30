@@ -9,16 +9,18 @@
         <li ng-repeat="ad in ads| filter:choise:true">
             <div class="adsDiv">
                 <div class="pull-left"><h2>{{ad.title}}</h2></div>                
-                <div class="pull-right">{{ad.date|date:'dd-MMM-yyyy'}}cat:{{ad.categoryId}}town:{{ad.townId}}</div>
+                <div class="pull-right">{{ad.date|date:'dd-MMM-yyyy'}}</div>
                 <div class="clearfix"></div>
                 <div class="imageDiv"><img ng-src="{{ad.imageDataUrl}}" alt="No image from user!" style="width: 100%" /></div>                
-                <div style="display: inline-block;width: 60%;"> 
-                    <div class="textDiv">
-                        {{ad.text}}
-                    </div>
-                    <div class="infoDiv"><strong>Name: </strong><span class="spanText">{{ad.ownerName}}</span>
-                        <strong>Email: </strong><span class="spanText">{{ad.ownerEmail}}</span>
-                        <strong>Tel: </strong><span class="spanText">{{ad.ownerPhone}}</span>
+                <div class="textDiv">
+                    {{ad.text}}
+                </div>
+                <div class="contInfoDiv"> 
+
+                    <div class="infoDiv">
+                        <div><strong>Name: </strong><span class="spanText">{{ad.ownerName}}</span></div>
+                        <div><strong>Email: </strong><span class="spanText">{{ad.ownerEmail}}</span></div>
+                        <div><strong>Tel: </strong><span class="spanText">{{ad.ownerPhone}}</span></div>
                     </div>
                 </div>
             </div>
@@ -31,8 +33,10 @@
         <div class="panel-heading" style="text-align: center"><h4>Categories</h4></div>
         <div class="panel-body innerPanel">
             <ul class="list-group innerPanel">
-                <li class="list-group-item-success innerLi" ng-class="{ 'active': $index == selectedIndexCategory }" ng-click="getFilterByCatID(null);categoryClicked($index)">All</li>
-                <li class="list-group-item-success innerLi" ng-class="{ 'active': $index == selectedIndexCategory }" ng-click="getFilterByCatID(cat.id);categoryClicked($index)"  ng-repeat="cat in categories">{{cat.name}}</li>
+                <li class="list-group-item-success innerLi" ng-class="{ 'active': $index == selectedIndexCategory }" ng-click="getFilterByCatID(null);
+                            categoryClicked($index)">All</li>
+                <li class="list-group-item-success innerLi" ng-class="{ 'active': $index == selectedIndexCategory }" ng-click="getFilterByCatID(cat.id);
+                            categoryClicked($index)"  ng-repeat="cat in categories">{{cat.name}}</li>
             </ul>
         </div>
     </div>
@@ -42,9 +46,11 @@
         <div class="panel-body innerPanel">
             <ul class="list-group innerPanel">
                 <li class="list-group-item-success innerLi" ng-class="{ 'active': $index == selectedIndex }"
-                    ng-click="getFilterByTownID(null);itemClicked($index)" >All</li>
+                    ng-click="getFilterByTownID(null);
+                                itemClicked($index)" >All</li>
                 <li class="list-group-item-success innerLi" ng-class="{ 'active': $index == selectedIndex }"
-                    ng-click="getFilterByTownID(town.id);itemClicked($index)" ng-repeat="town in towns">{{town.name}}</li>
+                    ng-click="getFilterByTownID(town.id);
+                                itemClicked($index)" ng-repeat="town in towns">{{town.name}}</li>
             </ul>
         </div>
     </div>   

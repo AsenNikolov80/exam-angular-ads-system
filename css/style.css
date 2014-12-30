@@ -6,7 +6,8 @@ body {
     margin: 0 auto;
     background-color: #4ad86a;
     color: black;
-    padding: 6px; }
+    padding: 6px;
+    position: relative; }
   body header {
     margin-bottom: 10px; }
   body footer {
@@ -14,7 +15,7 @@ body {
   body h1, body h2, body h3, body h4, body h5, body h6 {
     margin: 0; }
   body main {
-    padding: 10px; }
+    padding: 30px; }
   body .button {
     margin-bottom: 10px;
     border-radius: 11px;
@@ -39,8 +40,11 @@ body {
     background-color: #aaf0ac;
     padding: 8px;
     margin-bottom: 20px;
-    width: 100%;
+    width: 60%;
     font-size: 1.2em; }
+  body .contInfoDiv {
+    width: 70%;
+    margin-left: 15%; }
   body .adsDiv {
     border: 1px solid black;
     word-wrap: break-word;
@@ -68,7 +72,7 @@ body {
     margin-top: 10px;
     margin-left: 10px; }
   body .active {
-    background-color: green;
+    background-color: #337ab7;
     color: white; }
   body .form {
     width: 50%;
@@ -97,6 +101,17 @@ body {
     padding: 5px;
     background-color: red;
     color: wheat; }
+  body #userInfo {
+    position: absolute;
+    right: 110px;
+    top: 15px; }
+  body .navigation {
+    background-color: #4ad86a;
+    padding: 10px; }
+  body #logout {
+    position: absolute;
+    top: 12px;
+    right: 5px; }
 
 * {
   box-sizing: border-box; }

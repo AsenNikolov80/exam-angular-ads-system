@@ -10,7 +10,7 @@
 
     </head>
     <body ng-app="AdsSystem">
-        <header>
+        <header ng-controller="Secure">
             <h1>Ads - Home</h1>
         </header>
         <main class="row" ng-view>
@@ -22,10 +22,14 @@
         <script src="libs/angular.js" type="text/javascript"></script>
         <script src="libs/angular-route.js" type="text/javascript"></script>
         <script src="scripts/app-system.js" type="text/javascript"></script>
-        <script src="controllers/main-controller.js" type="text/javascript"></script>
+        
         <script src="factories/GetAdsFactory.js" type="text/javascript"></script>
         <script src="factories/loginQuery.js" type="text/javascript"></script>
+        
         <script src="controllers/login-controller.js" type="text/javascript"></script>
         <script src="controllers/register-controller.js" type="text/javascript"></script>
+        <script src="controllers/secure-controller.js" type="text/javascript"></script>
+        <script src="controllers/main-controller.js" type="text/javascript"></script>
+        <script src="controllers/get-user-ads-controller.js" type="text/javascript"></script>
     </body>
 </html>

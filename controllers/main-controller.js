@@ -1,5 +1,6 @@
 'use strict';
 app.controller('Main', function ($scope, GetAds, $location) {
+    $('#logout').remove();
     $scope.choise = {};
     GetAds.getCategories(function (resp) {
         $scope.categories = resp;

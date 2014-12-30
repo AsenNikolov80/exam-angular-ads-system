@@ -26,9 +26,22 @@ app.factory('GetAds', function ($http) {
                     alert('Can\'t load towns');
                 });
     }
+    function getAdsOfUser(success) {
+        var token = localStorage.getItem('token');
+        $http.defaults.headers.common.Authorization = 'Bearer ' + token;
+        $http({
+            method: 'GET',
+            url: 'http://softuni-ads.azurewebsites.net/api/user/ads'
+        }).success(function (data) {
+            success(data);
+        }).error(function () {
+            alert("can't load user ads!");
+        })
+    }
     return {
         getCategories: getCategories,
         getAllAds: getAllAds,
-        getTowns: getTowns
+        getTowns: getTowns,
+        getAdsOfUser: getAdsOfUser
     };
 })

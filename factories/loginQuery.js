@@ -13,17 +13,15 @@ app.factory('loginQuery', function ($http) {
                 username: username,
                 password: password
             })
+        }).success(function (data) {
+            success(data);
+        }).error(function () {
+            var errorDiv = $('<div class="errorDiv">').text('Invalid data!');
+            $('.form').prepend(errorDiv);
+            var time = setTimeout(function () {
+                $('.errorDiv').remove();
+            }, 2000)
         })
-                .success(function (data) {
-                    success(data);
-                })
-                .error(function () {
-                    var errorDiv = $('<div class="errorDiv">').text('Invalid data!');
-                    $('.form').prepend(errorDiv);
-                    var time = setTimeout(function () {
-                        $('.errorDiv').remove();
-                    }, 2000)
-                })
     }
     return {
         login: login

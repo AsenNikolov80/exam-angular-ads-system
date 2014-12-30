@@ -1,0 +1,14 @@
+<button ng-click="logout()" id="logout" class="btn-link">Logout</button>
+<nav class="col-xs-12 col-sm-2 navigation" ng-controller="Secure">
+    <h3>Navigation</h3>
+    <hr style="border-top: 2px solid green;">
+    <ul style="padding: 10px;text-align: left">
+        <li ng-class="{ 'active': 1 == link }" ng-click="linkClicked(1);changeView('/home/logged')"><h3>Home</h3></li>
+        <li ng-class="{ 'active': 2 == link }" ng-click="linkClicked(2);changeView('/ads/logged')"><h3>My Ads</h3></li>
+        <li ng-class="{ 'active': 3 == link }" ng-click="linkClicked(3);changeView('/publish/logged')"><h3>Publish New Ad</h3></li>
+        <li ng-class="{ 'active': 4 == link }" ng-click="linkClicked(4);changeView('/edit/logged')"><h3>Edit Profile</h3></li>
+    </ul>
+</nav>
+<section class="col-xs-12 col-sm-10" style="display: inline-block;position: relative" >
+    drasttt
+</section>
