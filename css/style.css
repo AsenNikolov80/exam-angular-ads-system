@@ -12,7 +12,7 @@ body {
   body footer {
     margin-top: 10px; }
   body h1, body h2, body h3, body h4, body h5, body h6 {
-    margin: 0 auto; }
+    margin: 0; }
   body main {
     padding: 10px; }
   body .button {
@@ -30,12 +30,73 @@ body {
     margin: 0; }
   body .innerLi {
     color: black;
-    font-size: 20px;
+    font-size: 15px;
     padding-left: 30px; }
-  body .adsDiv {
+  body .textDiv {
     display: inline-block;
+    margin-top: 20px;
+    margin-left: 10px;
+    background-color: #aaf0ac;
+    padding: 8px;
+    margin-bottom: 20px;
+    width: 100%;
+    font-size: 1.2em; }
+  body .adsDiv {
     border: 1px solid black;
-    word-wrap: break-word; }
+    word-wrap: break-word;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #5edc62; }
+  body .imageDiv {
+    min-width: 200px;
+    min-height: 250px;
+    max-height: 250px;
+    max-width: 200px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px; }
+  body .spanText {
+    background-color: #aaf0ac;
+    padding: 2px;
+    display: inline-block;
+    width: 80%;
+    text-align: left;
+    margin-bottom: 10px; }
+  body .infoDiv {
+    text-align: right;
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 10px; }
+  body .active {
+    background-color: green;
+    color: white; }
+  body .form {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid green;
+    background-color: #5edc62;
+    border-radius: 20px;
+    box-shadow: black 0 0 30px;
+    padding: 20px; }
+    body .form input[type='text'], body .form input[type='password'] {
+      display: block;
+      margin: 5px auto;
+      width: 90%; }
+  body .login {
+    background-color: #fff;
+    font-size: 1.5em;
+    box-shadow: black 0 0 10px;
+    width: 50%;
+    margin-top: 10px;
+    margin-left: 2%; }
+  body .link {
+    font-size: 20px;
+    margin-left: 20px; }
+  body .errorDiv {
+    padding: 5px;
+    background-color: red;
+    color: wheat; }
 
 * {
   box-sizing: border-box; }

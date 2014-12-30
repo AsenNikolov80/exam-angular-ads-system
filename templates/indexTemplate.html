@@ -1,31 +1,50 @@
-<nav class="col-xs-12 col-sm-3">
+<nav class="col-xs-12 col-sm-2">
     <h4>To publish a new ad, please login</h4><br />
-    <button class="btn btn-block btn-info button">Login</button>
-    <button class="btn btn-block btn-warning button" style="color: black">Register</button>
+    <button class="btn btn-block btn-info button" ng-click="changeView('login')" >Login</button>
+    <button class="btn btn-block btn-warning button" ng-click="changeView('register')" style="color: black">Register</button>
 </nav>
-<section class="col-xs-12 col-sm-6" style="display: inline-block">
+<section class="col-xs-12 col-sm-7" style="display: inline-block;position: relative">
+    <span style="position: absolute;top:50px;left: 210px;z-index: -1;font-size: 26px">No results!</span>
     <ul>
-        <li ng-repeat="ad in ads" >
-            {{ad.title}}    
+        <li ng-repeat="ad in ads| filter:choise:true">
+            <div class="adsDiv">
+                <div class="pull-left"><h2>{{ad.title}}</h2></div>                
+                <div class="pull-right">{{ad.date|date:'dd-MMM-yyyy'}}cat:{{ad.categoryId}}town:{{ad.townId}}</div>
+                <div class="clearfix"></div>
+                <div class="imageDiv"><img ng-src="{{ad.imageDataUrl}}" alt="No image from user!" style="width: 100%" /></div>                
+                <div style="display: inline-block;width: 60%;"> 
+                    <div class="textDiv">
+                        {{ad.text}}
+                    </div>
+                    <div class="infoDiv"><strong>Name: </strong><span class="spanText">{{ad.ownerName}}</span>
+                        <strong>Email: </strong><span class="spanText">{{ad.ownerEmail}}</span>
+                        <strong>Tel: </strong><span class="spanText">{{ad.ownerPhone}}</span>
+                    </div>
+                </div>
+            </div>
         </li>
     </ul>
 </section>
 <aside class="col-xs-12 col-sm-3 pull-right" style="padding: 20px;">
 
     <div class="panel panel-primary">
-        <div class="panel-heading" style="text-align: center"><h3>Categories</h3></div>
+        <div class="panel-heading" style="text-align: center"><h4>Categories</h4></div>
         <div class="panel-body innerPanel">
             <ul class="list-group innerPanel">
-                <li class="list-group-item-success innerLi" ng-repeat="cat in categories">{{cat.name}}</li>
+                <li class="list-group-item-success innerLi" ng-class="{ 'active': $index == selectedIndexCategory }" ng-click="getFilterByCatID(null);categoryClicked($index)">All</li>
+                <li class="list-group-item-success innerLi" ng-class="{ 'active': $index == selectedIndexCategory }" ng-click="getFilterByCatID(cat.id);categoryClicked($index)"  ng-repeat="cat in categories">{{cat.name}}</li>
             </ul>
         </div>
     </div>
 
     <div class="panel panel-primary">
-        <div class="panel-heading" style="text-align: center"><h3>Towns</h3></div>
+        <div class="panel-heading" style="text-align: center"><h4>Towns</h4></div>
         <div class="panel-body innerPanel">
             <ul class="list-group innerPanel">
-                <li class="list-group-item-success innerLi" ng-repeat="town in towns">{{town.name}}</li>
+                <li class="list-group-item-success innerLi" ng-class="{ 'active': $index == selectedIndex }"
+                    ng-click="getFilterByTownID(null);itemClicked($index)" >All</li>
+                <li class="list-group-item-success innerLi" ng-class="{ 'active': $index == selectedIndex }"
+                    ng-click="getFilterByTownID(town.id);itemClicked($index)" ng-repeat="town in towns">{{town.name}}</li>
             </ul>
         </div>
     </div>   

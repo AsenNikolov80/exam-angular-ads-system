@@ -1,0 +1,20 @@
+<nav class="col-xs-12 col-sm-2" ng-controller="Main">
+    <h4>To publish a new ad, please login</h4><br />
+    <button class="btn btn-block btn-info button" ng-click="changeView('login')" >Login</button>
+    <button class="btn btn-block btn-warning button" ng-click="changeView('register')" style="color: black">Register</button>
+</nav>
+<section class="col-xs-12 col-sm-10">
+    <form class="form">
+        <h2>Login</h2>
+        <hr style="border-top: 2px solid green;">
+        <h4>Username</h4>
+        <input type="text" class="input-lg" ng-model="username" id="user" required=""/>
+        <h4>Password</h4>
+        <input type="password" class="input-lg" ng-model="password" id="pass" required=""/>
+        <div style="width: 100%;margin: 0 auto;padding: 20px">
+            <button class="btn login pull-left" ng-click="loginTry()">Login</button>
+            <a ng-href="#/register" class="link">register here</a>
+        </div>
+    </form>
+</section>
+

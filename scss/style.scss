@@ -15,7 +15,7 @@ body{
         margin-top: 10px;
     }
     h1,h2,h3,h4,h5,h6{
-        margin: 0 auto;
+        margin: 0;
     }
     main{
         padding: 10px;
@@ -39,16 +39,86 @@ body{
     }
     .innerLi{
         color: black;
-        font-size: 20px;
+        font-size: 15px;
         padding-left: 30px;
     }
-    .adsDiv{
+    .textDiv{
         display: inline-block;
+        margin-top: 20px;
+        margin-left: 10px;
+        background-color: #aaf0ac;
+        padding: 8px;
+        margin-bottom: 20px;
+        width: 100%;
+        font-size: 1.2em;
+    }
+    .adsDiv{
         border: 1px solid black;
         word-wrap: break-word;            
-            
+        margin-top: 15px;
+        padding: 10px;
+        background-color: #5edc62;
     }
-    
+    .imageDiv{
+        min-width: 200px;
+        min-height: 250px;
+        max-height: 250px;
+        max-width: 200px;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 20px;
+    }
+    .spanText{
+        background-color: #aaf0ac;
+        padding: 2px;
+        display: inline-block;
+        width: 80%;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    .infoDiv{
+        text-align: right;
+        width: 100%;
+        margin-top: 10px;
+        margin-left: 10px;
+    }   
+    .idle{}
+    .active{
+        background-color: green;
+        color: white;
+    }
+    .form{
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+        border: 1px solid green;
+        background-color: #5edc62;
+        border-radius: 20px;
+        box-shadow: black 0 0 30px;
+        padding: 20px;
+        input[type='text'],input[type='password']{
+            display: block;
+            margin: 5px auto;
+            width: 90%;
+        }
+    }
+    .login{
+        background-color: #fff;
+        font-size: 1.5em;
+        box-shadow: black 0 0 10px;
+        width: 50%;
+        margin-top: 10px;
+        margin-left: 2%;
+    }
+    .link{
+        font-size: 20px;
+        margin-left: 20px;
+    }
+    .errorDiv{
+        padding: 5px;
+        background-color: red;
+        color: wheat;
+    }
 }
 *{
     box-sizing: border-box;

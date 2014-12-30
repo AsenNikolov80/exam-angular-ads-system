@@ -7,21 +7,25 @@
         <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>          
         <!--<script src="libs/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>-->      
-        <script src="libs/jquery-2.1.1.min.js" type="text/javascript"></script>
+
     </head>
     <body ng-app="AdsSystem">
         <header>
             <h1>Ads - Home</h1>
         </header>
         <main class="row" ng-view>
-            
+
         </main>
         <footer><h4>Ads–Home © 2014 by Software University Foundation, No Rights Reserved</h4></footer>
 
+        <script src="libs/jquery-2.1.1.min.js" type="text/javascript"></script>
         <script src="libs/angular.js" type="text/javascript"></script>
         <script src="libs/angular-route.js" type="text/javascript"></script>
         <script src="scripts/app-system.js" type="text/javascript"></script>
         <script src="controllers/main-controller.js" type="text/javascript"></script>
         <script src="factories/GetAdsFactory.js" type="text/javascript"></script>
+        <script src="factories/loginQuery.js" type="text/javascript"></script>
+        <script src="controllers/login-controller.js" type="text/javascript"></script>
+        <script src="controllers/register-controller.js" type="text/javascript"></script>
     </body>
 </html>
