@@ -55,7 +55,11 @@
             <div class="col-xs-12 col-sm-2 statusDiv">
                 <strong>Status:</strong><br />
                 <div><span class="spanStatus">{{ad.status}}</span></div>
-                <button class="btn btn-warning deactivateBut" ng-class="{'disabled':link2==4}" ng-click="deactivateAd(ad.id)" >Deactivate</button>
+                <!--ng-class="{'disabled':ad.status=='Inactive'}"-->
+                <button class="btn btn-danger deactivateBut" ng-if="ad.status=='Published'||ad.status=='WaitingApproval'"  ng-click="deactivateAd(ad.id)" >Deactivate</button>
+                <button class="btn btn-danger deactivateBut" ng-if="ad.status=='Inactive'"  ng-click="" >Edit</button>
+                <button class="btn btn-danger deactivateBut" ng-if="ad.status=='Inactive'"  ng-click="" >Publish Again</button>
+                <button class="btn btn-danger deactivateBut" ng-if="ad.status=='Inactive'"  ng-click="" >Delete</button>
             </div>
         </li>
     </ul>    
