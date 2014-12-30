@@ -38,10 +38,23 @@ app.factory('GetAds', function ($http) {
             alert("can't load user ads!");
         })
     }
+    function deactivateAd(id) {
+        var token = localStorage.getItem('token');
+        $http.defaults.headers.common.Authorization = 'Bearer ' + token;
+        $http({
+            method: 'PUT',
+            url: 'http://softuni-ads.azurewebsites.net/api/user/ads/deactivate/' + id
+        }).success(function (data) {
+            
+        }).error(function () {
+            alert("can't deactivate");
+        })
+    }
     return {
         getCategories: getCategories,
         getAllAds: getAllAds,
         getTowns: getTowns,
-        getAdsOfUser: getAdsOfUser
+        getAdsOfUser: getAdsOfUser,
+        deactivateAd: deactivateAd
     };
 })

@@ -9,16 +9,16 @@ app.config(function ($routeProvider) {
     }).when('/register', {
         templateUrl: 'templates/register.html',
         controller: 'Register'
-    }).when('/home/logged', {
+    }).when('/user/home', {
         templateUrl: 'templates/homeLogged.html',
         controller: 'Secure'
-    }).when('/ads/logged',{
+    }).when('/user/ads', {
         templateUrl: 'templates/adsLogged.html',
         controller: 'Secure'
-    }).when('/publish/logged',{
+    }).when('/user/ads/publish', {
         templateUrl: 'templates/publishLogged.html',
         controller: 'Secure'
-    }).when('/edit/logged',{
+    }).when('/user/profile', {
         templateUrl: 'templates/editLogged.html',
         controller: 'Secure'
     })

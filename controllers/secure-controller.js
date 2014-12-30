@@ -1,5 +1,10 @@
 'use strict';
 app.controller('Secure', function ($scope, GetAds, $location) {
+
+    if (!localStorage.username || !localStorage.token) {
+        $location.path('#/');
+    }
+
     var userInfo = $('<div id="userInfo">').text(localStorage.getItem('username'));
     $('#userInfo').remove();
     $('header').append(userInfo);
@@ -17,16 +22,20 @@ app.controller('Secure', function ($scope, GetAds, $location) {
     $scope.selectedIndex = -1;
     $scope.selectedIndexCategory = -1;
     $scope.link = localStorage.link;
-
+    $scope.link2 = localStorage.link2;
     $scope.linkClicked = linkClicked;
+    $scope.changeClass = changeClass;
     function linkClicked(index) {
         $scope.link = index;
         localStorage.link = index;
     }
+    function changeClass(id) {
+        localStorage.link2 = id;
+        $scope.link2 = id;
+    }
 //        $.get("templates/homeLogged.html", function (data) {
 //            $("main").append(data);
 //        });
-
 
     $scope.itemClicked = function (index) {
         $scope.selectedIndex = index;
@@ -66,5 +75,21 @@ app.controller('Secure', function ($scope, GetAds, $location) {
             delete($scope.choise.categoryId);
         }
         console.log($scope.choise);
+    }
+    $scope.choiseTypeAd = {};
+    function choiseType(id) {
+        if (id == 'all') {
+            $scope.choiseTypeAd = {};
+            return;
+        }
+        $scope.choiseTypeAd.status = id;
+        console.log($scope.choiseTypeAd);
+    }
+    $scope.choiseType = choiseType;
+
+    $scope.deactivateAd = deactivateAd;
+    function deactivateAd(id) {
+        GetAds.deactivateAd(id);
+        
     }
 });

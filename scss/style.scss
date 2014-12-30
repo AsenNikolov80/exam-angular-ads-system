@@ -17,6 +17,7 @@ body{
     }
     h1,h2,h3,h4,h5,h6{
         margin: 0;
+        display: inline-block;
     }
     main{
         padding: 30px;
@@ -81,6 +82,21 @@ body{
         text-align: left;
         margin-bottom: 10px;
     }
+    .spanText2{
+        background-color: #aaf0ac;
+        padding: 5px;
+        margin: 5px;
+        width: 30%;
+        text-align: left;
+        display: inline-block;
+        font-size: 20px;
+    }
+    .spanStatus{
+        display: inline-block;
+        background-color: #aaf0ac;
+        padding: 5px 19px;
+        width: 90%;
+    }
     .infoDiv{
         text-align: right;
         width: 100%;
@@ -130,13 +146,57 @@ body{
         top:15px;
     }
     .navigation{
+        margin: 0;
         background-color: #4ad86a;
         padding: 10px;
+        margin-bottom: 20px;
     }
     #logout{
         position: absolute;
         top:12px;
         right: 5px;
+    }
+    .userAd{
+        background-color: #5edc62;
+        padding: 10px;
+        border: 1px solid #5edc62;
+        margin: 10px;
+    }
+    .divInfoAdUser{
+        border-right: 2px solid gray;
+        width: 70%;
+        padding: 10px;
+        display: inline-block;
+        @media all and (max-width: 1024px){
+            width:100%;
+            font-size:15px;
+            border:0;
+            border-bottom: 2px solid gray;
+        }
+    }
+    .statusDiv{
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 20px;
+        text-align: center;
+        font-size: 23px;
+        padding: 10px;
+        width: 26%;
+        @media all and (max-width: 1024px){
+            width:100%;
+            font-size:14px;
+            padding: 2px;
+        }
+        @media all and (max-width: 1280px){
+            font-size:18px;
+            padding:3px;
+        }
+
+    }
+    .deactivateBut{
+        font-size: 22px;
+        padding: 10px;
+        border-radius: 10px;
     }
 }
 *{
