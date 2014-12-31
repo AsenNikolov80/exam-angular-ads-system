@@ -21,6 +21,11 @@ app.config(function ($routeProvider) {
     }).when('/user/profile', {
         templateUrl: 'templates/editLogged.html',
         controller: 'Secure'
+    }).when('/user/ads/reload',{
+        redirectTo:'/user/ads'
+    }).when('/user/ads/delete/:id',{
+        templateUrl: 'templates/deleteAd.html',
+        controller: 'DeleteAd'
     })
             .otherwise('/');
 });

@@ -32,9 +32,9 @@
     </nav>
 </div>
 
-<section class="col-xs-12 col-sm-10" style="display: inline-block;position: relative" ng-controller="getAdsByUser">
+<section class="col-xs-12 col-sm-10" style="display: inline-block;position: relative">
     <ul>
-        <li ng-repeat="ad in adsByUser|filter:choiseTypeAd" class="row userAd">
+        <li ng-repeat="ad in adsByUser|filter:choiseTypeAd.status" class="row userAd">
             <div class="col-xs-12 col-sm-10 divInfoAdUser">
                 <div class="pull-left"><h2>{{ad.title}}</h2></div>                
                 <div class="pull-right">{{ad.date|date:'dd-MMM-yyyy'}}</div>
@@ -56,10 +56,10 @@
                 <strong>Status:</strong><br />
                 <div><span class="spanStatus">{{ad.status}}</span></div>
                 <!--ng-class="{'disabled':ad.status=='Inactive'}"-->
-                <button class="btn btn-danger deactivateBut" ng-if="ad.status=='Published'||ad.status=='WaitingApproval'"  ng-click="deactivateAd(ad.id)" >Deactivate</button>
+                <button class="btn btn-danger deactivateBut" ng-if="ad.status=='Published'||ad.status=='WaitingApproval'"  ng-click="deactivateAd(ad.id);changeClass(1);changeView('/user/ads/reload');" >Deactivate</button>
                 <button class="btn btn-danger deactivateBut" ng-if="ad.status=='Inactive'"  ng-click="" >Edit</button>
-                <button class="btn btn-danger deactivateBut" ng-if="ad.status=='Inactive'"  ng-click="" >Publish Again</button>
-                <button class="btn btn-danger deactivateBut" ng-if="ad.status=='Inactive'"  ng-click="" >Delete</button>
+                <button class="btn btn-danger deactivateBut" ng-if="ad.status=='Inactive'"  ng-click="rePublishAd(ad.id);changeClass(1);changeView('/user/ads/reload');" >Publish Again</button>
+                <button class="btn btn-danger deactivateBut" ng-if="ad.status=='Inactive'"  ng-click="confirmDeleteAd(ad.id)" >Delete</button>
             </div>
         </li>
     </ul>    

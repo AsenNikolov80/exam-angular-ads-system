@@ -28,6 +28,8 @@ app.factory('GetAds', function ($http) {
     }
     function getAdsOfUser(success) {
         var token = localStorage.getItem('token');
+        if (!token)
+            return;
         $http.defaults.headers.common.Authorization = 'Bearer ' + token;
         $http({
             method: 'GET',
@@ -45,9 +47,55 @@ app.factory('GetAds', function ($http) {
             method: 'PUT',
             url: 'http://softuni-ads.azurewebsites.net/api/user/ads/deactivate/' + id
         }).success(function (data) {
-            
+            $('<div class="infoMsg">').text('Advertisement was deactivated!').appendTo('body');
+            setTimeout(function () {
+                $('.infoMsg').remove();
+            }, 2000);
         }).error(function () {
             alert("can't deactivate");
+        })
+    }
+    function rePublish(id) {
+        var token = localStorage.getItem('token');
+        $http.defaults.headers.common.Authorization = 'Bearer ' + token;
+        $http({
+            method: 'PUT',
+            url: 'http://softuni-ads.azurewebsites.net/api/user/ads/publishagain/' + id
+        }).success(function (data) {
+            $('<div class="infoMsg">').text('Advertisement submitted for approval! Once approved, it will be published! ').appendTo('body');
+            setTimeout(function () {
+                $('.infoMsg').remove();
+            }, 2000);
+        }).error(function () {
+            alert("can't re-publish!");
+        })
+    }
+    function deleteAd(id) {
+        var token = localStorage.getItem('token');
+        $http.defaults.headers.common.Authorization = 'Bearer ' + token;
+        $http({
+            method: 'DELETE',
+            url: 'http://softuni-ads.azurewebsites.net/api/user/ads/' + id
+        }).success(function (data) {
+            $('<div class="infoMsg">').text('Advertisement was deleted!').appendTo('body');
+            setTimeout(function () {
+                $('.infoMsg').remove();
+            }, 2000);
+        }).error(function () {
+            alert("can't delete!");
+        })
+    }
+    function getInfoForDeleteAd(id,success) {
+        var token = localStorage.getItem('token');
+        $http.defaults.headers.common.Authorization = 'Bearer ' + token;
+        $http({
+            method: 'GET',
+            url: 'http://softuni-ads.azurewebsites.net/api/user/ads/' + id
+        }).success(function (data) {
+//            console.log(data);
+            success(data);
+        }).error(function () {
+            
         })
     }
     return {
@@ -55,6 +103,9 @@ app.factory('GetAds', function ($http) {
         getAllAds: getAllAds,
         getTowns: getTowns,
         getAdsOfUser: getAdsOfUser,
-        deactivateAd: deactivateAd
+        deactivateAd: deactivateAd,
+        rePublish: rePublish,
+        deleteAd: deleteAd,
+        getInfoForDeleteAd: getInfoForDeleteAd
     };
 })

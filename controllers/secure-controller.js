@@ -1,5 +1,5 @@
 'use strict';
-app.controller('Secure', function ($scope, GetAds, $location) {
+app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
 
     if (!localStorage.username || !localStorage.token) {
         $location.path('#/');
@@ -12,6 +12,7 @@ app.controller('Secure', function ($scope, GetAds, $location) {
     $('#logout').remove();
     logoutLink.appendTo($('header'));
     $scope.logout = function () {
+        logoutQuery.logout();
         localStorage.clear();
         $('#logout').remove();
         $('#userInfo').remove();
@@ -58,6 +59,10 @@ app.controller('Secure', function ($scope, GetAds, $location) {
     GetAds.getTowns(function (resp) {
         $scope.towns = resp;
     })
+    GetAds.getAdsOfUser(function (resp) {
+        $scope.adsByUser = resp.ads;
+//        console.log($scope.adsByUser);
+    });
     $scope.getFilterByTownID = function (name) {
         if (name) {
             $scope.choise.townId = name;
@@ -90,6 +95,14 @@ app.controller('Secure', function ($scope, GetAds, $location) {
     $scope.deactivateAd = deactivateAd;
     function deactivateAd(id) {
         GetAds.deactivateAd(id);
-        
     }
+    $scope.rePublishAd = rePublishAd;
+    function rePublishAd(id) {
+        GetAds.rePublish(id);
+    }
+    $scope.confirmDeleteAd = confirmDeleteAd;
+    function confirmDeleteAd(id) {
+        $location.path('/user/ads/delete/'+id);
+    }
+
 });
