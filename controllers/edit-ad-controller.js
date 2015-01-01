@@ -1,7 +1,8 @@
-app.controller('DeleteAd', function ($scope, GetAds, $routeParams, logoutQuery, $location) {
+app.controller('EditAd', function ($scope, GetAds, $routeParams, $location) {
     if (!localStorage.username || !localStorage.token) {
         $location.path('#/');
     }
+
     $scope.id = $routeParams.id;
     var userInfo = $('<div id="userInfo">').text(localStorage.getItem('username'));
     $('#userInfo').remove();
@@ -10,22 +11,12 @@ app.controller('DeleteAd', function ($scope, GetAds, $routeParams, logoutQuery, 
     $('#logout').remove();
     logoutLink.appendTo($('header'));
 
-    $scope.logout = function () {
-        logoutQuery.logout();
-        localStorage.clear();
-        $('#logout').remove();
-        $('#userInfo').remove();
-        $('#logout').remove();
-        $('#userInfo').remove();
-        $location.path('#/');
-    }
     GetAds.getInfoForDeleteAd($scope.id, function (resp) {
         console.log(resp);
         $scope.ad = resp;
+        $scope.test = resp;
     });
-    $scope.deleteAdv = function () {
-        GetAds.deleteAd($scope.id);
-    }
+
     $scope.cancel = function () {
         $location.path('/user/home');
     }
@@ -34,4 +25,16 @@ app.controller('DeleteAd', function ($scope, GetAds, $routeParams, logoutQuery, 
         localStorage.link = index;
     }
     $scope.linkClicked = linkClicked;
+
+    $scope.editAdv = function (editedAd) {
+        console.log(editedAd);
+        GetAds.editAd(editedAd.id, editedAd);
+    }
+    GetAds.getTowns(function (resp) {
+        $scope.towns = resp;
+    })
+    GetAds.getCategories(function (resp) {
+        $scope.categories = resp;
+    });
+
 })

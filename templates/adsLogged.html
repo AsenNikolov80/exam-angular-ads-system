@@ -57,7 +57,7 @@
                 <div><span class="spanStatus">{{ad.status}}</span></div>
                 <!--ng-class="{'disabled':ad.status=='Inactive'}"-->
                 <button class="btn btn-danger deactivateBut" ng-if="ad.status=='Published'||ad.status=='WaitingApproval'"  ng-click="deactivateAd(ad.id);changeClass(1);changeView('/user/ads/reload');" >Deactivate</button>
-                <button class="btn btn-danger deactivateBut" ng-if="ad.status=='Inactive'"  ng-click="" >Edit</button>
+                <button class="btn btn-danger deactivateBut" ng-if="ad.status=='Inactive'"  ng-click="confirmEditAd(ad.id)" >Edit</button>
                 <button class="btn btn-danger deactivateBut" ng-if="ad.status=='Inactive'"  ng-click="rePublishAd(ad.id);changeClass(1);changeView('/user/ads/reload');" >Publish Again</button>
                 <button class="btn btn-danger deactivateBut" ng-if="ad.status=='Inactive'"  ng-click="confirmDeleteAd(ad.id)" >Delete</button>
             </div>

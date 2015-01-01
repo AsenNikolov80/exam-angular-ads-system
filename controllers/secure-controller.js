@@ -104,5 +104,9 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
     function confirmDeleteAd(id) {
         $location.path('/user/ads/delete/'+id);
     }
+    $scope.confirmEditAd = confirmEditAd;
+    function confirmEditAd(id) {
+        $location.path('/user/ads/edit/'+id);
+    }
 
 });

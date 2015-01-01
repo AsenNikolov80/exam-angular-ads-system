@@ -1,4 +1,4 @@
-app.factory('GetAds', function ($http) {
+app.factory('GetAds', function ($http, $location) {
     function getCategories(success) {
         $http.get('http://softuni-ads.azurewebsites.net/api/categories')
                 .success(function (data) {
@@ -81,11 +81,38 @@ app.factory('GetAds', function ($http) {
             setTimeout(function () {
                 $('.infoMsg').remove();
             }, 2000);
+            localStorage.link2 = 1;
+            $location.path('/user/ads');
         }).error(function () {
             alert("can't delete!");
         })
     }
-    function getInfoForDeleteAd(id,success) {
+    function editAd(id, editedAd) {
+        var token = localStorage.getItem('token');
+        $http.defaults.headers.common.Authorization = 'Bearer ' + token;
+        $http({
+            method: 'PUT',
+            url: 'http://softuni-ads.azurewebsites.net/api/user/ads/' + id,
+            data: {
+                title: editedAd.title,
+                text: editedAd.text,
+                changeimage: false,
+                ImageDataURL: '',
+                categoryid: editedAd.categoryId,
+                townid: editedAd.townId
+            }
+        }).success(function (data) {
+            $('<div class="infoMsg">').text('Advertisement was edited!').appendTo('body');
+            setTimeout(function () {
+                $('.infoMsg').remove();
+            }, 2000);
+            localStorage.link2 = 1;
+            $location.path('/user/ads');
+        }).error(function () {
+            alert("can't edit!");
+        })
+    }
+    function getInfoForDeleteAd(id, success) {
         var token = localStorage.getItem('token');
         $http.defaults.headers.common.Authorization = 'Bearer ' + token;
         $http({
@@ -95,7 +122,7 @@ app.factory('GetAds', function ($http) {
 //            console.log(data);
             success(data);
         }).error(function () {
-            
+
         })
     }
     return {
@@ -106,6 +133,7 @@ app.factory('GetAds', function ($http) {
         deactivateAd: deactivateAd,
         rePublish: rePublish,
         deleteAd: deleteAd,
-        getInfoForDeleteAd: getInfoForDeleteAd
+        getInfoForDeleteAd: getInfoForDeleteAd,
+        editAd: editAd
     };
 })

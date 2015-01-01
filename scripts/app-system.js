@@ -26,6 +26,9 @@ app.config(function ($routeProvider) {
     }).when('/user/ads/delete/:id',{
         templateUrl: 'templates/deleteAd.html',
         controller: 'DeleteAd'
+    }).when('/user/ads/edit/:id',{
+        templateUrl: 'templates/editAd.html',
+        controller: 'EditAd'
     })
             .otherwise('/');
 });

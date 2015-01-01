@@ -1,0 +1,64 @@
+<button ng-click="logout()" id="logout" class="btn-link">Logout</button>
+<div class="col-xs-12 col-sm-2" style="margin:0;padding: 0">
+    <nav class="navigation" ng-controller="Secure">
+        <h3>Navigation</h3>
+        <hr style="border-top: 2px solid green;">
+        <ul style="padding: 10px;text-align: left;margin-bottom: 20px">
+            <li ng-class="{ 'active': 1 == link }" ng-click="linkClicked(1);
+                                changeView('/user/home')"><h4>Home</h4></li>
+            <li ng-class="{ 'active': 2 == link }" ng-click="linkClicked(2);
+                                changeView('/user/ads');
+                                changeClass(1)"><h4>My Ads</h4></li>
+            <li ng-class="{ 'active': 3 == link }" ng-click="linkClicked(3);
+                                changeView('/user/ads/publish')"><h4>Publish New Ad</h4></li>
+            <li ng-class="{ 'active': 4 == link }" ng-click="linkClicked(4);
+                                changeView('/user/profile')"><h4>Edit Profile</h4></li>
+        </ul>
+    </nav>
+</div>
+<section class="col-xs-12 col-sm-10" style="display: inline-block;position: relative">
+    <div id="deleteContainer">
+        <h2>Edit ad?</h2>
+        <hr style="border-bottom: 2px solid green">
+        <div>
+            <form>
+                <div class="pull-left" style="margin-left: 6%"><h2>Title: </h2>
+                    <input class="selectInEdit" type="text"  value="{{ad.title}}" ng-model="ad.title" />
+                    <!--ng-model="test.newTitle"-->
+                    
+                </div>                
+                <div class="pull-right">{{ad.date|date:'dd-MMM-yyyy'}}</div>
+                <div class="clearfix"></div>
+                <div class="imageDiv"><img ng-src="{{ad.imageDataUrl}}" alt="No image from user!" style="width: 100%" /></div>                
+                <div class="textDiv" style="padding: 1px">
+                    <textarea style="width: 100%;max-width: 100%" ng-model="ad.text">{{ad.text}}</textarea> 
+                    <!--ng-model="test.newText"-->
+                </div>
+                <div class="infoDiv" style="width: 50%">
+                    <div style="margin: 10px;">
+                        <h3>Town: </h3>
+                        <select class="selectInEdit" ng-model="ad.townId">
+                            <option value="" style="display: none"></option>
+                            <option ng-repeat="town in towns" value="{{town.id}}" ng-if="ad.townName == town.name" selected="selected">{{town.name}}</option>
+                            <option ng-repeat="town in towns" value="{{town.id}}" ng-if="ad.townName != town.name" >{{town.name}}</option>
+                        </select>
+                    </div>
+                    <div style="margin: 10px;">
+                        <h3>Category: </h3>
+                        <select class="selectInEdit" ng-model="ad.categoryId">
+                            <option value="" style="display: none"></option>
+                            <option ng-repeat="cat in categories" value="{{cat.id}}" ng-if="ad.categoryName == cat.name" selected="selected">{{cat.name}}</option>
+                            <option ng-repeat="cat in categories" value="{{cat.id}}" ng-if="ad.categoryName != cat.name" >{{cat.name}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <button class="btn btn-danger deactivateBut" style="width: 40%" ng-click="editAdv(ad)">Edit</button>
+                    <button class="btn btn-primary deactivateBut" style="width: 40%" ng-click="linkClicked(1);
+                                cancel();">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

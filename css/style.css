@@ -88,6 +88,9 @@ body {
     width: 100%;
     margin-top: 10px;
     margin-left: 10px; }
+    @media all and (max-width: 1024px) {
+      body .infoDiv h3 {
+        font-size: 17px; } }
   body .active {
     background-color: #337ab7;
     color: white; }
@@ -195,6 +198,16 @@ body {
     text-align: center;
     border-radius: 20px;
     background-color: #4ad86a; }
+  body .selectInEdit {
+    border-radius: 8px;
+    padding: 5px;
+    background-color: #c1efcb;
+    font-size: 22px;
+    width: 70%; }
+    @media all and (max-width: 1024px) {
+      body .selectInEdit {
+        font-size: 20px;
+        width: 100%; } }
 
 * {
   box-sizing: border-box; }
