@@ -1,4 +1,10 @@
 app.factory('GetAds', function ($http, $location) {
+    function getToken() {
+        var token = localStorage.getItem('token');
+        if (!token)
+            return;
+        $http.defaults.headers.common.Authorization = 'Bearer ' + token;
+    }
     function getCategories(success) {
         $http.get('http://softuni-ads.azurewebsites.net/api/categories')
                 .success(function (data) {
@@ -27,10 +33,7 @@ app.factory('GetAds', function ($http, $location) {
                 });
     }
     function getAdsOfUser(success) {
-        var token = localStorage.getItem('token');
-        if (!token)
-            return;
-        $http.defaults.headers.common.Authorization = 'Bearer ' + token;
+        getToken();
         $http({
             method: 'GET',
             url: 'http://softuni-ads.azurewebsites.net/api/user/ads'
@@ -41,8 +44,7 @@ app.factory('GetAds', function ($http, $location) {
         })
     }
     function deactivateAd(id) {
-        var token = localStorage.getItem('token');
-        $http.defaults.headers.common.Authorization = 'Bearer ' + token;
+        getToken();
         $http({
             method: 'PUT',
             url: 'http://softuni-ads.azurewebsites.net/api/user/ads/deactivate/' + id
@@ -56,8 +58,7 @@ app.factory('GetAds', function ($http, $location) {
         })
     }
     function rePublish(id) {
-        var token = localStorage.getItem('token');
-        $http.defaults.headers.common.Authorization = 'Bearer ' + token;
+        getToken();
         $http({
             method: 'PUT',
             url: 'http://softuni-ads.azurewebsites.net/api/user/ads/publishagain/' + id
@@ -71,8 +72,7 @@ app.factory('GetAds', function ($http, $location) {
         })
     }
     function deleteAd(id) {
-        var token = localStorage.getItem('token');
-        $http.defaults.headers.common.Authorization = 'Bearer ' + token;
+        getToken();
         $http({
             method: 'DELETE',
             url: 'http://softuni-ads.azurewebsites.net/api/user/ads/' + id
@@ -88,15 +88,14 @@ app.factory('GetAds', function ($http, $location) {
         })
     }
     function editAd(id, editedAd) {
-        var token = localStorage.getItem('token');
-        $http.defaults.headers.common.Authorization = 'Bearer ' + token;
+        getToken();
         $http({
             method: 'PUT',
             url: 'http://softuni-ads.azurewebsites.net/api/user/ads/' + id,
             data: {
                 title: editedAd.title,
                 text: editedAd.text,
-                changeimage: false,
+                changeimage: false, // TODO
                 ImageDataURL: '',
                 categoryid: editedAd.categoryId,
                 townid: editedAd.townId
@@ -113,8 +112,7 @@ app.factory('GetAds', function ($http, $location) {
         })
     }
     function getInfoForDeleteAd(id, success) {
-        var token = localStorage.getItem('token');
-        $http.defaults.headers.common.Authorization = 'Bearer ' + token;
+        getToken();
         $http({
             method: 'GET',
             url: 'http://softuni-ads.azurewebsites.net/api/user/ads/' + id
@@ -123,6 +121,18 @@ app.factory('GetAds', function ($http, $location) {
             success(data);
         }).error(function () {
 
+        })
+    }
+    function createAd(ad) {
+        getToken();
+        $http({
+            method:'POST',
+            url:'http://softuni-ads.azurewebsites.net/api/user/ads',
+            data:JSON.stringify(ad)
+        }).success(function (data){
+            alert('yes')
+        }).error(function (){
+            alert('no')
         })
     }
     return {
@@ -134,6 +144,7 @@ app.factory('GetAds', function ($http, $location) {
         rePublish: rePublish,
         deleteAd: deleteAd,
         getInfoForDeleteAd: getInfoForDeleteAd,
-        editAd: editAd
+        editAd: editAd,
+        createAd: createAd
     };
 })

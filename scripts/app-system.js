@@ -17,7 +17,7 @@ app.config(function ($routeProvider) {
         controller: 'Secure'
     }).when('/user/ads/publish', {
         templateUrl: 'templates/publishLogged.html',
-        controller: 'Secure'
+        controller: 'PublishAd'
     }).when('/user/profile', {
         templateUrl: 'templates/editLogged.html',
         controller: 'Secure'

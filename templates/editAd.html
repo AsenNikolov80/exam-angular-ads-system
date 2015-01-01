@@ -24,7 +24,6 @@
             <form>
                 <div class="pull-left" style="margin-left: 6%"><h2>Title: </h2>
                     <input class="selectInEdit" type="text"  value="{{ad.title}}" ng-model="ad.title" />
-                    <!--ng-model="test.newTitle"-->
                     
                 </div>                
                 <div class="pull-right">{{ad.date|date:'dd-MMM-yyyy'}}</div>
@@ -32,7 +31,7 @@
                 <div class="imageDiv"><img ng-src="{{ad.imageDataUrl}}" alt="No image from user!" style="width: 100%" /></div>                
                 <div class="textDiv" style="padding: 1px">
                     <textarea style="width: 100%;max-width: 100%" ng-model="ad.text">{{ad.text}}</textarea> 
-                    <!--ng-model="test.newText"-->
+                    
                 </div>
                 <div class="infoDiv" style="width: 50%">
                     <div style="margin: 10px;">
@@ -55,8 +54,7 @@
 
                 <div>
                     <button class="btn btn-danger deactivateBut" style="width: 40%" ng-click="editAdv(ad)">Edit</button>
-                    <button class="btn btn-primary deactivateBut" style="width: 40%" ng-click="linkClicked(1);
-                                cancel();">Cancel</button>
+                    <button class="btn btn-primary deactivateBut" style="width: 40%" ng-click="linkClicked(1);cancel();">Cancel</button>
                 </div>
             </form>
         </div>

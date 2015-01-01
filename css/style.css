@@ -208,6 +208,22 @@ body {
       body .selectInEdit {
         font-size: 20px;
         width: 100%; } }
+  body .errorDivPublish {
+    position: fixed;
+    top: 10%;
+    left: 30%;
+    width: 40%;
+    padding: 10px;
+    font-size: 26px;
+    text-align: center;
+    background-color: red;
+    color: wheat; }
+  body .image-box {
+    width: 200px;
+    height: 150px; }
+  body #previewImg {
+    width: 70%;
+    height: 40%; }
 
 * {
   box-sizing: border-box; }

@@ -245,6 +245,25 @@ body{
             width:100%;
         }
     }
+    .errorDivPublish{
+        position:fixed;
+        top:10%;
+        left:30%;
+        width:40%;
+        padding:10px;
+        font-size:26px;
+        text-align:center;
+        background-color: red;
+        color: wheat;
+    }
+    .image-box{
+        width: 200px;
+        height: 150px;
+    }
+    #previewImg{
+        width: 70%;
+        height: 40%;
+    }
 }
 *{
     box-sizing: border-box;
