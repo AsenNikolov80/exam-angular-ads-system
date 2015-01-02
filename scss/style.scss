@@ -19,6 +19,15 @@ body{
         margin: 0;
         display: inline-block;
     }
+    h3{
+        margin-top: 10px;
+        @media all and (max-width:1024px){
+            font-size:19px;
+        }
+        @media all and (max-width:640px){
+            font-size:12px;
+        }
+    }
     main{
         padding: 30px;
     }
@@ -65,12 +74,23 @@ body{
         padding: 10px;
         background-color: #5edc62;
     }
+    .profileDiv{
+        display: inline-block;
+        width: 40%;
+        border-radius: 15px;
+        padding: 10px;
+        padding-right: 20px;
+        text-align: center;
+
+        background-color: #4ad86a;
+        margin: 3%;
+    }
     .imageDiv{
+        margin: 0 auto;
         min-width: 200px;
         min-height: 250px;
-        max-height: 250px;
-        max-width: 200px;
-        display: inline-block;
+        max-width: 40%;
+        display: block;
         vertical-align: top;
         margin-top: 20px;
     }
@@ -101,14 +121,13 @@ body{
         width: 90%;
     }
     .infoDiv{
-        text-align: right;
-        width: 100%;
-        margin-top: 10px;
-        margin-left: 10px;
-        & h3{@media all and (max-width: 1024px){
-                 font-size:17px;
-             }
-        }
+        text-align: left;
+        width: 80%;
+        margin: 10px;
+        /*        & h3{@media all and (max-width: 1024px){
+                         font-size:17px;
+                     }*/
+        /*}*/
     }   
     .idle{}
     .active{
@@ -130,6 +149,21 @@ body{
             width: 90%;
         }
     }
+    .registerForm{
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        border: 1px solid green;
+        padding: 20px;
+        background-color: #5edc62;
+        border-radius: 20px;
+        box-shadow: black 0 0 30px;
+        input[type='text'],input[type='password'],input[type='email']{
+            display: block;
+            margin: 5px auto;
+            width: 90%;
+        }
+    }
     .login{
         background-color: #fff;
         font-size: 1.5em;
@@ -137,10 +171,21 @@ body{
         width: 50%;
         margin-top: 10px;
         margin-left: 2%;
+        &:hover{
+            background-color: blue;
+            color: white;
+            border: 1px solid white;
+            transition: 0.9s;
+        }
     }
     .link{
         font-size: 20px;
         margin-left: 20px;
+        color: blue;
+        padding:5px;
+        &:hover{
+            box-shadow: white 0 0 50px;
+        }
     }
     .errorDiv{
         padding: 5px;
@@ -198,7 +243,6 @@ body{
             font-size:18px;
             padding:3px;
         }
-
     }
     .deactivateBut{
         font-size: 21px;
@@ -210,6 +254,10 @@ body{
             font-size:18px;
             padding:3px;
         }
+    }
+    .editProfileBut{
+        width: 40%;
+        margin: 10px;
     }
     .infoMsg{
         position: fixed;
@@ -238,11 +286,10 @@ body{
         border-radius: 8px;
         padding: 5px;
         background-color: #c1efcb;
-        font-size: 22px;
-        width: 70%;
+        font-size: 20px;
+        width: 90%;
         @media all and (max-width: 1024px){
-            font-size:20px;
-            width:100%;
+            font-size:16px;
         }
     }
     .errorDivPublish{
@@ -261,8 +308,12 @@ body{
         height: 150px;
     }
     #previewImg{
-        width: 70%;
-        height: 40%;
+        width: 100%;
+    }
+    .divForImagesEdit{
+        display: inline-block;
+        width: 45%;
+        vertical-align: top;
     }
 }
 *{

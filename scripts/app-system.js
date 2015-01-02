@@ -20,7 +20,7 @@ app.config(function ($routeProvider) {
         controller: 'PublishAd'
     }).when('/user/profile', {
         templateUrl: 'templates/editLogged.html',
-        controller: 'Secure'
+        controller: 'GetUserInfo'
     }).when('/user/ads/reload',{
         redirectTo:'/user/ads'
     }).when('/user/ads/delete/:id',{

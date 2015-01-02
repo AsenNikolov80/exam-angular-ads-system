@@ -95,8 +95,8 @@ app.factory('GetAds', function ($http, $location) {
             data: {
                 title: editedAd.title,
                 text: editedAd.text,
-                changeimage: false, // TODO
-                ImageDataURL: '',
+                changeimage: true, // TODO
+                ImageDataURL: editedAd.imageDataUrl,
                 categoryid: editedAd.categoryId,
                 townid: editedAd.townId
             }
@@ -130,9 +130,18 @@ app.factory('GetAds', function ($http, $location) {
             url:'http://softuni-ads.azurewebsites.net/api/user/ads',
             data:JSON.stringify(ad)
         }).success(function (data){
-            alert('yes')
-        }).error(function (){
-            alert('no')
+            $('<div class="infoMsg">').text('Advertisement was created!').appendTo('body');
+            setTimeout(function () {
+                $('.infoMsg').remove();
+            }, 2000);
+            localStorage.link2 = 1;
+            localStorage.link = 2;
+            $location.path('/user/ads');
+        }).error(function (){            
+            $('<div class="errorDivPublish">').text('Advertisement has NOT created! Please try again!').appendTo('body');
+            setTimeout(function () {
+                $('.errorDivPublish').remove();
+            }, 3000);
         })
     }
     return {

@@ -22,19 +22,35 @@
         <hr style="border-bottom: 2px solid green">
         <div>
             <form>
-                <div class="pull-left" style="margin-left: 6%"><h2>Title: </h2>
-                    <input class="selectInEdit" type="text"  value="{{ad.title}}" ng-model="ad.title" />
-                    
+                <div class="pull-left" style="width: 70%">
+                    <h2>Title: </h2>
+                    <input class="selectInEdit" style="width: 70%" type="text"  value="{{ad.title}}" ng-model="ad.title" />
+
                 </div>                
                 <div class="pull-right">{{ad.date|date:'dd-MMM-yyyy'}}</div>
                 <div class="clearfix"></div>
-                <div class="imageDiv"><img ng-src="{{ad.imageDataUrl}}" alt="No image from user!" style="width: 100%" /></div>                
-                <div class="textDiv" style="padding: 1px">
-                    <textarea style="width: 100%;max-width: 100%" ng-model="ad.text">{{ad.text}}</textarea> 
-                    
+
+                <div class="pull-left" style="width: 70%;margin-top: 2%;display: table">
+                    <h2 style="display: table-cell;vertical-align: middle">Text: </h2>    <textarea style="width: 80%;max-width: 100%;height: 100px" ng-model="ad.text">{{ad.text}}</textarea> 
                 </div>
-                <div class="infoDiv" style="width: 50%">
-                    <div style="margin: 10px;">
+                <div class="clearfix"></div>
+                <div>
+                    <h2>Image: </h2> <input type="text" id="showPath" value="{{filePath}}" style="width: 40%" class="selectInEdit" />
+                    <input type='file' id="imgInp" style="display: inline-block" ng-model="ad.imageDataUrl"/>
+                    <button class="btn btn-primary" style="margin: 5px" ng-click="deleteImage()">Delete image</button><br />
+                    <div class="divForImagesEdit">
+                        <h3>New image:</h3><br />
+                        <img id="previewImg" src="#" alt="your image" />
+                    </div>
+                    <div class="divForImagesEdit">
+                        <h3>Old image:</h3>
+                        <img ng-src="{{ad.imageDataUrl}}" alt="No image from user!" style="width: 90%" />
+                    </div>
+                </div>
+
+                <br />
+                <div class="infoDiv">
+                    <div style="margin: 10px;width: 60%">
                         <h3>Town: </h3>
                         <select class="selectInEdit" ng-model="ad.townId">
                             <option value="" style="display: none"></option>
@@ -42,7 +58,7 @@
                             <option ng-repeat="town in towns" value="{{town.id}}" ng-if="ad.townName != town.name" >{{town.name}}</option>
                         </select>
                     </div>
-                    <div style="margin: 10px;">
+                    <div style="margin: 10px;width: 60%">
                         <h3>Category: </h3>
                         <select class="selectInEdit" ng-model="ad.categoryId">
                             <option value="" style="display: none"></option>
@@ -54,7 +70,8 @@
 
                 <div>
                     <button class="btn btn-danger deactivateBut" style="width: 40%" ng-click="editAdv(ad)">Edit</button>
-                    <button class="btn btn-primary deactivateBut" style="width: 40%" ng-click="linkClicked(1);cancel();">Cancel</button>
+                    <button class="btn btn-primary deactivateBut" style="width: 40%" ng-click="linkClicked(1);
+                                cancel();">Cancel</button>
                 </div>
             </form>
         </div>

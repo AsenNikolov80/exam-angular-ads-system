@@ -1,4 +1,4 @@
-app.controller('PublishAd', function ($scope, GetAds, $routeParams, $location) {
+app.controller('PublishAd', function ($scope, GetAds, logoutQuery, $routeParams, $location) {
     if (!localStorage.username || !localStorage.token) {
         $location.path('#/');
     }
@@ -46,7 +46,7 @@ app.controller('PublishAd', function ($scope, GetAds, $routeParams, $location) {
         }
         GetAds.createAd(newAd);
     }
-    
+
     $scope.changeView = changeView;
     function changeView(view) {
         $location.path(view);
@@ -65,6 +65,8 @@ app.controller('PublishAd', function ($scope, GetAds, $routeParams, $location) {
                 $scope.newAd.imageDataUrl = e.target.result;
             };
             reader.readAsDataURL(input.files[0]);
+            var filePath = $('#imgInp').val();
+            $('#showPath').val(filePath);
         }
     }
 

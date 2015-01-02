@@ -36,5 +36,27 @@ app.controller('EditAd', function ($scope, GetAds, $routeParams, $location) {
     GetAds.getCategories(function (resp) {
         $scope.categories = resp;
     });
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#previewImg').attr('src', e.target.result);
+                $scope.ad.imageDataUrl = e.target.result;
+            };
+            reader.readAsDataURL(input.files[0]);
+            var filePath = $('#imgInp').val();
+            $('#showPath').val(filePath);
+        }
+    }
 
+    $("#imgInp").change(function () {
+        readURL(this);
+    });
+    $scope.deleteImage = function () {
+        $('<div class="infoMsg">').text('Image was deleted! Please submit for change!').appendTo('body');
+            setTimeout(function () {
+                $('.infoMsg').remove();
+            }, 5000);
+        $scope.ad.imageDataUrl = '';
+    }
 })
