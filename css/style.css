@@ -149,7 +149,8 @@ body {
     body .registerForm input[type='text'], body .registerForm input[type='password'], body .registerForm input[type='email'] {
       display: block;
       margin: 5px auto;
-      width: 90%; }
+      width: 90%;
+      height: 35px; }
     body .registerForm h3 {
       color: white; }
   body .login {
