@@ -11,6 +11,15 @@ body{
     }
     header{
         margin-bottom: 10px;
+        @media all and (max-width:576px){
+            text-align:left;
+        }
+        h1{
+            @media all and (max-width:448px){
+                font-size:18px;
+            }    
+        }
+
     }
     footer{
         margin-top: 10px;
@@ -19,6 +28,7 @@ body{
         margin: 0;
         display: inline-block;
     }
+
     h3{
         margin-top: 10px;
         @media all and (max-width:1024px){
@@ -186,6 +196,17 @@ body{
     .input-lg{
         @media all and (max-width: 768px){
             font-size: 13px;
+        }
+    }
+    .spanNoResult{
+        position: absolute;
+        top:50px;
+        left: 210px;
+        z-index: -1;
+        font-size: 26px;
+        @media all and (max-width:768px){
+            font-size: 18px;
+            left: 110px;
         }
     }
     .registerForm{
