@@ -49,6 +49,7 @@ body {
   body .innerLi {
     color: black;
     font-size: 15px;
+    background-color: #aaa;
     padding-left: 30px; }
     body .innerLi:last-child {
       border-bottom-left-radius: 10px;
@@ -60,11 +61,11 @@ body {
     background-color: #e1dddd;
     padding: 8px;
     margin-bottom: 20px;
-    width: 64%;
-    font-size: 1.2em; }
+    width: 62%;
+    font-size: 1em; }
     @media all and (max-width: 1280px) {
       body .textDiv {
-        font-size: 1em;
+        font-size: 0.9em;
         width: 97%; } }
   body .contInfoDiv {
     margin-left: 30%; }
@@ -111,21 +112,22 @@ body {
     text-align: left;
     margin-bottom: 10px; }
   body .spanText2 {
-    background-color: #aaf0ac;
+    background-color: #e1dddd;
     padding: 5px;
     margin: 5px;
     width: 30%;
     text-align: left;
     display: inline-block;
-    font-size: 20px; }
+    font-size: 16px; }
     @media all and (max-width: 1024px) {
       body .spanText2 {
-        font-size: 16px; } }
+        font-size: 12px; } }
   body .spanStatus {
     display: inline-block;
     background-color: #e1dddd;
     padding: 5px 19px;
-    width: 90%; }
+    width: 90%;
+    font-size: 0.8em; }
   body .infoDiv {
     text-align: right;
     width: 95.5%;
@@ -147,6 +149,12 @@ body {
       width: 90%; }
     body .form h3 {
       color: white; }
+    @media all and (max-width: 768px) {
+      body .form {
+        width: 100%; } }
+  @media all and (max-width: 768px) {
+    body .input-lg {
+      font-size: 13px; } }
   body .registerForm {
     width: 70%;
     margin: 0 auto;
@@ -162,6 +170,9 @@ body {
       height: 35px; }
     body .registerForm h3 {
       color: white; }
+    @media all and (max-width: 768px) {
+      body .registerForm {
+        width: 100%; } }
   body .login {
     background-color: #c7bebe;
     font-size: 1.5em;
@@ -209,7 +220,12 @@ body {
   body .userAd {
     background-color: #aaa;
     padding: 10px;
-    margin: 10px !important; }
+    width: 85%;
+    margin: 19px !important; }
+    @media all and (max-width: 768px) {
+      body .userAd {
+        margin-bottom: 38px !important;
+        width: 100%; } }
   body .divInfoAdUser {
     border-right: 2px solid gray;
     width: 70%;
@@ -241,14 +257,14 @@ body {
         font-size: 18px;
         padding: 3px; } }
   body .deactivateBut {
-    font-size: 21px;
-    padding: 10px;
+    font-size: 18px;
+    padding: 6px;
     border-radius: 10px;
     margin-top: 20px;
-    width: 65%; }
+    width: 60%; }
     @media all and (max-width: 1280px) {
       body .deactivateBut {
-        font-size: 18px;
+        font-size: 15px;
         padding: 3px; } }
   body .editProfileBut {
     width: 40%;
@@ -275,22 +291,29 @@ body {
         font-size: 18px;
         padding: 3px; } }
   body #deleteContainer {
-    margin: 0 10%;
-    border: 2px solid green;
+    margin: 0 15%;
     padding: 20px;
     color: black;
     text-align: center;
     border-radius: 20px;
     background-color: #ccc; }
+    @media all and (max-width: 768px) {
+      body #deleteContainer {
+        margin: 0; } }
   body .selectInEdit {
     border-radius: 8px;
-    padding: 5px;
-    background-color: #c1efcb;
-    font-size: 20px;
+    padding: 2px;
+    background-color: #eee;
+    font-size: 16px;
     width: 90%; }
     @media all and (max-width: 1024px) {
       body .selectInEdit {
-        font-size: 16px; } }
+        font-size: 12px; } }
+  body .textArea {
+    min-width: 400px;
+    background-color: #eee;
+    min-height: 120px;
+    max-width: 70%; }
   body .errorDivPublish {
     position: fixed;
     top: 10%;
@@ -318,6 +341,10 @@ body {
     font-size: 20px; }
     body a:hover {
       color: #db0f16; }
+  @media all and (max-width: 768px) {
+    body ul {
+      padding: 0;
+      margin: 0; } }
   body ul li {
     cursor: pointer; }
   body .panel-heading {
