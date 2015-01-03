@@ -1,7 +1,7 @@
 <button ng-click="logout()" id="logout" class="btn-link">Logout</button>
 <nav class="col-xs-12 col-sm-2 navigation" ng-controller="Secure">
     <h3>Navigation</h3>
-    <hr style="border-top: 2px solid green;">
+    <hr class="hrStyle">
     <ul style="padding: 10px;text-align: left">
         <li ng-class="{ 'active': 1 == link }" ng-click="linkClicked(1);
                             changeView('/user/home')"><h4>Home</h4></li>
@@ -15,60 +15,62 @@
     </ul>
 </nav>
 <section class="col-xs-12 col-sm-10" style="display: inline-block;position: relative" ng-controller="GetUserInfo">
-    <div class="profileDiv">
-        <h2>Edit profile</h2>
-        <hr style="border-top: 2px solid green;">
-        <div style="text-align: right">   
-            <form>
+    <div class="row">
+        <div class="col-xs-12 profileDiv">
+            <h2>Edit profile</h2>
+            <hr class="hrStyle">
+            <div style="text-align: right">   
+                <form>
+                    <div style="margin: 5px">
+                        <h3>Name:</h3>
+                        <input type="text" class="selectInEdit" value="{{user.name}}" ng-model="user.name"/>
+                    </div>
+                    <div style="margin: 5px">
+                        <h3>Email:</h3>
+                        <input type="text" class="selectInEdit" value="{{user.email}}" ng-model="user.email"/>
+                    </div>
+                    <div style="margin: 5px">
+                        <h3>Phone:</h3>
+                        <input type="text" class="selectInEdit" value="{{user.phoneNumber}}" ng-model="user.phoneNumber"/>
+                    </div>
+                    <div style="margin: 5px">
+                        <h3>Town:</h3>
+                        <select ng-model="user.townId" class="selectInEdit" >           
+                            <option value="" style="display: none"></option>
+                            <option ng-repeat="town in towns" value="{{town.id}}" ng-if="user.townId != town.id" >{{town.name}}</option>            
+                            <option ng-repeat="town in towns" value="{{town.id}}" ng-if="user.townId == town.id" selected="selected" >{{town.name}}</option>            
+                        </select>
+                    </div>
+                    <div style="margin: 5px">
+                        <button class="btn btn-danger editProfileBut" ng-click="update(user)">Update</button>
+                        <button class="btn btn-primary editProfileBut" ng-click="cancel()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-xs-12 profileDiv">
+            <h2>Change password</h2>
+            <hr class="hrStyle">
+            <div style="text-align: right">
+
                 <div style="margin: 5px">
-                    <h3>Name:</h3>
-                    <input type="text" class="selectInEdit" value="{{user.name}}" ng-model="user.name"/>
+                    <h3>Old password:</h3>
+                    <input type="password" class="selectInEdit" ng-model="pass.oldPassword"/>
                 </div>
                 <div style="margin: 5px">
-                    <h3>Email:</h3>
-                    <input type="text" class="selectInEdit" value="{{user.email}}" ng-model="user.email"/>
+                    <h3>New password:</h3>
+                    <input type="password" class="selectInEdit" ng-model="pass.newPassword"/>
                 </div>
                 <div style="margin: 5px">
-                    <h3>Phone:</h3>
-                    <input type="text" class="selectInEdit" value="{{user.phoneNumber}}" ng-model="user.phoneNumber"/>
+                    <h3>Confirm new password:</h3>
+                    <input type="password" class="selectInEdit" ng-model="pass.confirmPassword"/>
                 </div>
                 <div style="margin: 5px">
-                    <h3>Town:</h3>
-                    <select ng-model="user.townId" class="selectInEdit" >           
-                        <option value="" style="display: none"></option>
-                        <option ng-repeat="town in towns" value="{{town.id}}" ng-if="user.townId != town.id" >{{town.name}}</option>            
-                        <option ng-repeat="town in towns" value="{{town.id}}" ng-if="user.townId == town.id" selected="selected" >{{town.name}}</option>            
-                    </select>
-                </div>
-                <div style="margin: 5px">
-                    <button class="btn btn-danger editProfileBut" ng-click="update(user)">Update</button>
+                    <button class="btn btn-danger editProfileBut" ng-click="updatePassword(pass)">Change password</button>
                     <button class="btn btn-primary editProfileBut" ng-click="cancel()">Cancel</button>
                 </div>
-            </form>
-        </div>
-    </div>
-    <div class="profileDiv">
-        <h2>Change password</h2>
-        <hr style="border-top: 2px solid green;">
-        <div style="text-align: right">
+            </div>
 
-            <div style="margin: 5px">
-                <h3>Old password:</h3>
-                <input type="password" class="selectInEdit" ng-model="pass.oldPassword"/>
-            </div>
-            <div style="margin: 5px">
-                <h3>New password:</h3>
-                <input type="password" class="selectInEdit" ng-model="pass.newPassword"/>
-            </div>
-            <div style="margin: 5px">
-                <h3>Confirm new password:</h3>
-                <input type="password" class="selectInEdit" ng-model="pass.confirmPassword"/>
-            </div>
-            <div style="margin: 5px">
-                <button class="btn btn-danger editProfileBut" ng-click="updatePassword(pass)">Change password</button>
-                <button class="btn btn-primary editProfileBut" ng-click="cancel()">Cancel</button>
-            </div>
         </div>
-
     </div>
 </section>

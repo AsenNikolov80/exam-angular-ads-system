@@ -1,12 +1,12 @@
 <nav class="col-xs-12 col-sm-2" ng-controller="Main">
     <h4>To publish a new ad, please login</h4><br />
-    <button class="btn btn-block btn-info button" ng-click="changeView('login')" >Login</button>
-    <button class="btn btn-block btn-warning button" ng-click="changeView('register')" style="color: black">Register</button>
+    <button class="btn btn-block btn-warning button" ng-click="changeView('login')" >Login</button>
+    <button class="btn btn-block btn-warning button" ng-click="changeView('register')">Register</button>
 </nav>
 <section class="col-xs-12 col-sm-10" >
     <form class="registerForm">
         <h2>Register new user</h2>
-        <hr style="border-top: 2px solid green;">
+        <hr class="hrStyle">
         <div style="display: inline-block;width: 45%;vertical-align: top">
             <h3>Username</h3>
             <input type="text" class="input-lg" ng-model="user.username"  required=""/>
@@ -14,7 +14,6 @@
             <input type="text" class="input-lg" ng-model="user.name" required=""/>
             <h3>Phone</h3>
             <input type="text" class="input-lg" ng-model="user.phone"  required=""/>
-
         </div>
         <div style="display: inline-block;width: 45%;vertical-align: top">
             <h3>Password</h3>
@@ -30,10 +29,10 @@
                 <option ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
             </select>
         </div>
-        
-        <div style="width: 94%;margin: 0 auto;padding: 20px">
+
+        <div style="width: 94%;margin: 0 auto;padding: 10px">
             <button class="btn login pull-left" style="width: 45%" ng-click="register(user)">Register</button>
-            <a ng-href="#/login" class="link">login here</a>
+            <a ng-href="#/login" class="link">Login here</a>
         </div>
     </form>
 </section>

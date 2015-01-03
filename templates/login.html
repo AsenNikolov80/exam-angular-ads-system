@@ -1,19 +1,19 @@
 <nav class="col-xs-12 col-sm-2" ng-controller="Main">
     <h4>To publish a new ad, please login</h4><br />
-    <button class="btn btn-block btn-info button" ng-click="changeView('login')" >Login</button>
-    <button class="btn btn-block btn-warning button" ng-click="changeView('register')" style="color: black">Register</button>
+    <button class="btn btn-block btn-warning button" ng-click="changeView('login')" >Login</button>
+    <button class="btn btn-block btn-warning button" ng-click="changeView('register')">Register</button>
 </nav>
 <section class="col-xs-12 col-sm-10" >
     <form class="form">
         <h2>Login</h2>
-        <hr style="border-top: 2px solid green;">
+        <hr class="hrStyle">
         <h3>Username</h3>
         <input type="text" class="input-lg" ng-model="username" id="user" required=""/>
         <h3>Password</h3>
         <input type="password" class="input-lg" ng-model="password" id="pass" required=""/>
         <div style="margin: 0 auto;padding: 20px">
             <button class="btn login pull-left" ng-click="loginTry()">Login</button>
-            <a ng-href="#/register" class="link">register here</a>
+            <a ng-href="#/register" class="link">Register here</a>
         </div>
     </form>
 </section>

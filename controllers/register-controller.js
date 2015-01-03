@@ -4,10 +4,13 @@ app.controller('Register', function ($scope, registerQuery, $location, GetAds) {
         $scope.towns = resp;
     });
     $scope.register = function (user) {
-//        if (!user.name || !user.email || !user.password || !user.phone) {
-//        
-//            return;
-//        }
+        if (!user.name || !user.email || !user.password || !user.phone) {
+            $('<div class="errorDivPublish">').text('All data except town is required!').appendTo('body');
+            setTimeout(function () {
+                $('.errorDivPublish').remove();
+            }, 3000);
+            return;
+        }
         registerQuery.register(user, function (resp) {
             localStorage.setItem('token', resp.access_token);
             localStorage.setItem('username', resp.username);

@@ -1,11 +1,11 @@
 body {
-  margin: 0 auto;
-  background-color: #c1efcb; }
+  margin: 0;
+  background-color: #e1dddd; }
   body header, body footer {
     text-align: center;
     margin: 0 auto;
-    background-color: #4ad86a;
-    color: black;
+    background-color: #d2585c;
+    color: white;
     padding: 6px;
     position: relative; }
   body header {
@@ -28,7 +28,12 @@ body {
   body .button {
     margin-bottom: 10px;
     border-radius: 11px;
-    font-size: 20px; }
+    font-size: 20px;
+    background-color: #9d4145; }
+    body .button:hover {
+      color: black;
+      background-color: #c7bebe;
+      transition: 0.8s; }
   body nav {
     text-align: center; }
   body li {
@@ -49,17 +54,22 @@ body {
     background-color: #aaf0ac;
     padding: 8px;
     margin-bottom: 20px;
-    width: 60%;
+    width: 55%;
     font-size: 1.2em; }
+    @media all and (max-width: 1024px) {
+      body .textDiv {
+        font-size: 1em;
+        width: 95%; } }
   body .contInfoDiv {
-    width: 70%;
-    margin-left: 15%; }
+    margin-left: 30%; }
   body .adsDiv {
     border: 1px solid black;
     word-wrap: break-word;
     margin-top: 15px;
     padding: 10px;
     background-color: #5edc62; }
+  body .hrStyle {
+    border-top: 2px solid #9d4145; }
   body .profileDiv {
     display: inline-block;
     width: 40%;
@@ -67,8 +77,12 @@ body {
     padding: 10px;
     padding-right: 20px;
     text-align: center;
-    background-color: #4ad86a;
+    background-color: #ccc;
     margin: 3%; }
+    @media all and (max-width: 768px) {
+      body .profileDiv {
+        width: 95%;
+        margin-top: 10px; } }
   body .imageDiv {
     margin: 0 auto;
     min-width: 200px;
@@ -77,6 +91,9 @@ body {
     display: block;
     vertical-align: top;
     margin-top: 20px; }
+    @media all and (max-width: 1024px) {
+      body .imageDiv {
+        min-height: 50px; } }
   body .spanText {
     background-color: #aaf0ac;
     padding: 2px;
@@ -103,20 +120,15 @@ body {
   body .infoDiv {
     text-align: left;
     width: 80%;
-    margin: 10px;
-    /*        & h3{@media all and (max-width: 1024px){
-                     font-size:17px;
-                 }*/
-    /*}*/ }
+    margin: 10px; }
   body .active {
-    background-color: #337ab7;
+    background-color: #d2585c;
     color: white; }
   body .form {
     width: 50%;
     margin: 0 auto;
     text-align: center;
-    border: 1px solid green;
-    background-color: #5edc62;
+    background-color: #999393;
     border-radius: 20px;
     box-shadow: black 0 0 30px;
     padding: 20px; }
@@ -124,41 +136,45 @@ body {
       display: block;
       margin: 5px auto;
       width: 90%; }
+    body .form h3 {
+      color: white; }
   body .registerForm {
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
     text-align: center;
-    border: 1px solid green;
     padding: 20px;
-    background-color: #5edc62;
+    background-color: #999393;
     border-radius: 20px;
     box-shadow: black 0 0 30px; }
     body .registerForm input[type='text'], body .registerForm input[type='password'], body .registerForm input[type='email'] {
       display: block;
       margin: 5px auto;
       width: 90%; }
+    body .registerForm h3 {
+      color: white; }
   body .login {
-    background-color: #fff;
+    background-color: #c7bebe;
     font-size: 1.5em;
     box-shadow: black 0 0 10px;
-    width: 50%;
+    width: 46%;
     margin-top: 10px;
-    margin-left: 2%; }
+    margin-left: 1%;
+    margin-right: 1%; }
     body .login:hover {
-      background-color: blue;
+      background-color: #b83030;
       color: white;
       border: 1px solid white;
       transition: 0.9s; }
   body .link {
     font-size: 20px;
-    margin-left: 20px;
-    color: blue;
+    /*margin-left: 20px;*/
+    color: #db0f16;
     padding: 5px; }
     body .link:hover {
       box-shadow: white 0 0 50px; }
   body .errorDiv {
-    padding: 5px;
-    background-color: red;
+    padding: 20px;
+    background-color: #d2585c;
     color: wheat; }
   body #userInfo {
     position: absolute;
@@ -166,13 +182,19 @@ body {
     top: 15px; }
   body .navigation {
     margin: 0;
-    background-color: #4ad86a;
+    background-color: #aaa;
     padding: 10px;
     margin-bottom: 20px; }
   body #logout {
-    position: absolute;
-    top: 12px;
-    right: 5px; }
+    /*        position: absolute;
+            top:12px;
+            right: 5px;*/
+    margin-top: 5px;
+    float: right;
+    color: white; }
+    body #logout:hover {
+      box-shadow: whitesmoke 0 0 30px;
+      color: black; }
   body .userAd {
     background-color: #5edc62;
     padding: 10px;
@@ -219,6 +241,14 @@ body {
   body .editProfileBut {
     width: 40%;
     margin: 10px; }
+    @media all and (max-width: 768px) {
+      body .editProfileBut {
+        font-size: 18px;
+        width: 95%; } }
+    @media all and (max-width: 1024px) {
+      body .editProfileBut {
+        font-size: 14px;
+        width: 65%; } }
   body .infoMsg {
     position: fixed;
     top: 50px;
@@ -239,7 +269,7 @@ body {
     color: black;
     text-align: center;
     border-radius: 20px;
-    background-color: #4ad86a; }
+    background-color: #ccc; }
   body .selectInEdit {
     border-radius: 8px;
     padding: 5px;
@@ -254,10 +284,10 @@ body {
     top: 10%;
     left: 30%;
     width: 40%;
-    padding: 10px;
+    padding: 20px;
     font-size: 26px;
     text-align: center;
-    background-color: red;
+    background-color: #d2585c;
     color: wheat; }
   body .image-box {
     width: 200px;
@@ -268,6 +298,25 @@ body {
     display: inline-block;
     width: 45%;
     vertical-align: top; }
+  body a {
+    display: inline-block;
+    margin-top: 20px;
+    color: black;
+    cursor: pointer;
+    font-size: 20px; }
+    body a:hover {
+      color: #db0f16; }
+  body ul li {
+    cursor: pointer; }
+  body .panel-heading {
+    background-color: #d2585c !important;
+    border-color: #d2585c !important; }
+  body .panel-primary {
+    border-color: #d2585c !important; }
+  body #logout {
+    position: absolute;
+    top: 8px;
+    right: 5px; }
 
 * {
   box-sizing: border-box; }

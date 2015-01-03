@@ -2,7 +2,7 @@
 <div class="col-xs-12 col-sm-2" style="margin:0;padding: 0">
     <nav class="navigation" ng-controller="Secure">
         <h3>Navigation</h3>
-        <hr style="border-top: 2px solid green;">
+        <hr class="hrStyle">
         <ul style="padding: 10px;text-align: left;margin-bottom: 20px">
             <li ng-class="{ 'active': 1 == link }" ng-click="linkClicked(1);
                                 changeView('/user/home')"><h4>Home</h4></li>
@@ -16,7 +16,7 @@
     </nav>
     <nav class="navigation">
         <h3>My Ads</h3>
-        <hr style="border-top: 2px solid green;">
+        <hr class="hrStyle">
         <ul style="padding: 10px;text-align: left;margin-bottom: 20px">
             <li ng-class="{ 'active': 1 == link2 }" ng-click="choiseType('all');
                         changeClass(1)"><h4>All</h4></li>
