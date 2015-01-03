@@ -11,7 +11,9 @@
     </head>
     <body ng-app="AdsSystem">
         <header>
-            <h1>Ads - Home</h1>
+            <div id="logo">
+                <h1>Ads - Home</h1>
+            </div>
         </header>
         <main class="row" ng-view>
 
@@ -22,13 +24,13 @@
         <script src="libs/angular.js" type="text/javascript"></script>
         <script src="libs/angular-route.js" type="text/javascript"></script>
         <script src="scripts/app-system.js" type="text/javascript"></script>
-        
+
         <script src="factories/GetAdsFactory.js" type="text/javascript"></script>
         <script src="factories/loginQuery.js" type="text/javascript"></script>
         <script src="factories/logoutQuery.js" type="text/javascript"></script>
         <script src="factories/getUserInfoQuery.js" type="text/javascript"></script>
         <script src="factories/registerQuery.js" type="text/javascript"></script>
-        
+
         <script src="controllers/login-controller.js" type="text/javascript"></script>
         <script src="controllers/register-controller.js" type="text/javascript"></script>
         <script src="controllers/secure-controller.js" type="text/javascript"></script>
@@ -37,6 +39,6 @@
         <script src="controllers/edit-ad-controller.js" type="text/javascript"></script>
         <script src="controllers/publish-ad-controller.js" type="text/javascript"></script>
         <script src="controllers/get-user-controller.js" type="text/javascript"></script>
-        
+
     </body>
 </html>

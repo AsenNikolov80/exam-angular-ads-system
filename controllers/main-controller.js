@@ -1,6 +1,11 @@
 'use strict';
 app.controller('Main', function ($scope, GetAds, $location) {
-    $('#logout').remove();
+//    $('header').empty();
+    if ($location.path() == '/') {
+        $('header').empty();
+        $('<div id="logo">').html('<h1>Ads - Home</h1>').appendTo($('header'));
+    }
+
     $scope.choise = {};
     GetAds.getCategories(function (resp) {
         $scope.categories = resp;
@@ -42,10 +47,10 @@ app.controller('Main', function ($scope, GetAds, $location) {
     $scope.categoryClicked = function ($index) {
         $scope.selectedIndexCategory = $index;
     };
-    
+
     $scope.changeView = function (view) {
         $location.path(view);
     };
-    
-    
+
+
 });

@@ -1,6 +1,9 @@
 'use strict';
 app.controller('Login', function ($scope, loginQuery, $location) {
-    $('#logout').remove();
+//    $('#logout').remove();
+    $('#logo').empty();
+    $('#logo').html('<h1>Ads - Login</h1>');
+
     $scope.loginTry = function () {
         loginQuery.login(function (resp) {
             if (resp.access_token != null && resp.access_token != undefined && resp.access_token != '') {

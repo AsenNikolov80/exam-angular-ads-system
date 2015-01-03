@@ -4,6 +4,15 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
     if (!localStorage.username || !localStorage.token) {
         $location.path('#/');
     }
+//    $('header').empty();
+    if ($location.path() == '/user/home') {
+        $('#logo').html('<h1>Ads - Home</h1>');
+    } else if ($location.path() == '/user/ads/publish') {
+        
+        $('#logo').html('<h1>Ads - Publish New Ad</h1>');
+    } else if ($location.path() == '/user/ads') {
+        $('#logo').html('<h1>Ads - My Ads</h1>');
+    }
 
     var userInfo = $('<div id="userInfo">').text(localStorage.getItem('username'));
     $('#userInfo').remove();
@@ -11,6 +20,7 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
     var logoutLink = $('#logout');
     $('#logout').remove();
     logoutLink.appendTo($('header'));
+
     $scope.logout = function () {
         logoutQuery.logout();
         localStorage.clear();
@@ -102,11 +112,11 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
     }
     $scope.confirmDeleteAd = confirmDeleteAd;
     function confirmDeleteAd(id) {
-        $location.path('/user/ads/delete/'+id);
+        $location.path('/user/ads/delete/' + id);
     }
     $scope.confirmEditAd = confirmEditAd;
     function confirmEditAd(id) {
-        $location.path('/user/ads/edit/'+id);
+        $location.path('/user/ads/edit/' + id);
     }
 
 });

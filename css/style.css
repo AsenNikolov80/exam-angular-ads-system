@@ -24,7 +24,10 @@ body {
       body h3 {
         font-size: 12px; } }
   body main {
-    padding: 30px; }
+    padding: 25px;
+    width: 100%; }
+  body .row {
+    margin: 0 !important; }
   body .button {
     margin-bottom: 10px;
     border-radius: 11px;
@@ -47,27 +50,33 @@ body {
     color: black;
     font-size: 15px;
     padding-left: 30px; }
+    body .innerLi:last-child {
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px; }
   body .textDiv {
     display: inline-block;
     margin-top: 20px;
     margin-left: 10px;
-    background-color: #aaf0ac;
+    background-color: #e1dddd;
     padding: 8px;
     margin-bottom: 20px;
-    width: 55%;
+    width: 64%;
     font-size: 1.2em; }
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 1280px) {
       body .textDiv {
         font-size: 1em;
-        width: 95%; } }
+        width: 97%; } }
   body .contInfoDiv {
     margin-left: 30%; }
   body .adsDiv {
     border: 1px solid black;
     word-wrap: break-word;
+    cursor: default;
     margin-top: 15px;
     padding: 10px;
-    background-color: #5edc62; }
+    background-color: #aaa; }
+    body .adsDiv li {
+      cursor: default; }
   body .hrStyle {
     border-top: 2px solid #9d4145; }
   body .profileDiv {
@@ -86,16 +95,16 @@ body {
   body .imageDiv {
     margin: 0 auto;
     min-width: 200px;
-    min-height: 250px;
-    max-width: 40%;
-    display: block;
+    min-height: 150px;
+    max-width: 32%;
+    display: inline-block;
     vertical-align: top;
     margin-top: 20px; }
     @media all and (max-width: 1024px) {
       body .imageDiv {
         min-height: 50px; } }
   body .spanText {
-    background-color: #aaf0ac;
+    background-color: #e1dddd;
     padding: 2px;
     display: inline-block;
     width: 80%;
@@ -114,12 +123,12 @@ body {
         font-size: 16px; } }
   body .spanStatus {
     display: inline-block;
-    background-color: #aaf0ac;
+    background-color: #e1dddd;
     padding: 5px 19px;
     width: 90%; }
   body .infoDiv {
-    text-align: left;
-    width: 80%;
+    text-align: right;
+    width: 95.5%;
     margin: 10px; }
   body .active {
     background-color: #d2585c;
@@ -170,9 +179,9 @@ body {
     font-size: 20px;
     /*margin-left: 20px;*/
     color: #db0f16;
-    padding: 5px; }
+    padding: 0px; }
     body .link:hover {
-      box-shadow: white 0 0 50px; }
+      color: white; }
   body .errorDiv {
     padding: 20px;
     background-color: #d2585c;
@@ -182,7 +191,8 @@ body {
     right: 110px;
     top: 15px; }
   body .navigation {
-    margin: 0;
+    margin-top: 16px;
+    border-radius: 10px;
     background-color: #aaa;
     padding: 10px;
     margin-bottom: 20px; }
@@ -197,13 +207,14 @@ body {
       box-shadow: whitesmoke 0 0 30px;
       color: black; }
   body .userAd {
-    background-color: #5edc62;
+    background-color: #aaa;
     padding: 10px;
-    border: 1px solid #5edc62;
-    margin: 10px; }
+    margin: 10px !important; }
   body .divInfoAdUser {
     border-right: 2px solid gray;
     width: 70%;
+    cursor: default;
+    background-color: #aaa;
     padding: 10px;
     display: inline-block; }
     @media all and (max-width: 1024px) {
@@ -311,9 +322,13 @@ body {
     cursor: pointer; }
   body .panel-heading {
     background-color: #d2585c !important;
-    border-color: #d2585c !important; }
+    border-color: #d2585c !important;
+    border-top-left-radius: 9px !important;
+    border-top-right-radius: 9px !important; }
   body .panel-primary {
-    border-color: #d2585c !important; }
+    border-color: #d2585c !important;
+    border-radius: 11px !important;
+    border: 1px solid #d2585c !important; }
   body #logout {
     position: absolute;
     top: 8px;

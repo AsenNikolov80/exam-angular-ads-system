@@ -11,7 +11,7 @@ app.factory('GetAds', function ($http, $location) {
                     success(data);
                 })
                 .error(function () {
-                    alert('Can\'t load categories');
+//                    alert('Can\'t load categories');
                 });
     }
     function getAllAds(success) {
@@ -20,7 +20,7 @@ app.factory('GetAds', function ($http, $location) {
                     success(data);
                 })
                 .error(function () {
-                    alert('Can\'t load ads');
+//                    alert('Can\'t load ads');
                 });
     }
     function getTowns(success) {
@@ -29,7 +29,7 @@ app.factory('GetAds', function ($http, $location) {
                     success(data);
                 })
                 .error(function () {
-                    alert('Can\'t load towns');
+//                    alert('Can\'t load towns');
                 });
     }
     function getAdsOfUser(success) {
@@ -40,7 +40,7 @@ app.factory('GetAds', function ($http, $location) {
         }).success(function (data) {
             success(data);
         }).error(function () {
-            alert("can't load user ads!");
+//            alert("can't load user ads!");
         })
     }
     function deactivateAd(id) {
@@ -54,7 +54,7 @@ app.factory('GetAds', function ($http, $location) {
                 $('.infoMsg').remove();
             }, 2000);
         }).error(function () {
-            alert("can't deactivate");
+//            alert("can't deactivate");
         })
     }
     function rePublish(id) {
@@ -68,7 +68,7 @@ app.factory('GetAds', function ($http, $location) {
                 $('.infoMsg').remove();
             }, 2000);
         }).error(function () {
-            alert("can't re-publish!");
+//            alert("can't re-publish!");
         })
     }
     function deleteAd(id) {
@@ -84,7 +84,7 @@ app.factory('GetAds', function ($http, $location) {
             localStorage.link2 = 1;
             $location.path('/user/ads');
         }).error(function () {
-            alert("can't delete!");
+//            alert("can't delete!");
         })
     }
     function editAd(id, editedAd) {
@@ -108,7 +108,7 @@ app.factory('GetAds', function ($http, $location) {
             localStorage.link2 = 1;
             $location.path('/user/ads');
         }).error(function () {
-            alert("can't edit!");
+//            alert("can't edit!");
         })
     }
     function getInfoForDeleteAd(id, success) {
