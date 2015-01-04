@@ -14,8 +14,8 @@ app.factory('GetAds', function ($http, $location) {
 //                    alert('Can\'t load categories');
                 });
     }
-    function getAllAds(success) {
-        $http.get('http://softuni-ads.azurewebsites.net/api/ads')
+    function getAllAds(page,success) {
+        $http.get('http://softuni-ads.azurewebsites.net/api/ads?pagesize=10&startpage='+page)
                 .success(function (data) {
                     success(data);
                 })
@@ -23,6 +23,7 @@ app.factory('GetAds', function ($http, $location) {
 //                    alert('Can\'t load ads');
                 });
     }
+
     function getTowns(success) {
         $http.get('http://softuni-ads.azurewebsites.net/api/towns')
                 .success(function (data) {
@@ -32,15 +33,16 @@ app.factory('GetAds', function ($http, $location) {
 //                    alert('Can\'t load towns');
                 });
     }
-    function getAdsOfUser(success) {
+    function getAdsOfUser(page, success) {
         getToken();
         $http({
             method: 'GET',
-            url: 'http://softuni-ads.azurewebsites.net/api/user/ads'
+            url: 'http://softuni-ads.azurewebsites.net/api/user/ads?pagesize=10&startpage=' + page
         }).success(function (data) {
+//            console.log(data);
             success(data);
         }).error(function () {
-//            alert("can't load user ads!");
+
         })
     }
     function deactivateAd(id) {
@@ -126,10 +128,10 @@ app.factory('GetAds', function ($http, $location) {
     function createAd(ad) {
         getToken();
         $http({
-            method:'POST',
-            url:'http://softuni-ads.azurewebsites.net/api/user/ads',
-            data:JSON.stringify(ad)
-        }).success(function (data){
+            method: 'POST',
+            url: 'http://softuni-ads.azurewebsites.net/api/user/ads',
+            data: JSON.stringify(ad)
+        }).success(function (data) {
             $('<div class="infoMsg">').text('Advertisement was created!').appendTo('body');
             setTimeout(function () {
                 $('.infoMsg').remove();
@@ -137,7 +139,7 @@ app.factory('GetAds', function ($http, $location) {
             localStorage.link2 = 1;
             localStorage.link = 2;
             $location.path('/user/ads');
-        }).error(function (){            
+        }).error(function () {
             $('<div class="errorDivPublish">').text('Advertisement has NOT created! Please try again!').appendTo('body');
             setTimeout(function () {
                 $('.errorDivPublish').remove();

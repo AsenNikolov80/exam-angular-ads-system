@@ -27,6 +27,11 @@
             </div>
         </li>
     </ul>
+    <ul class="pagination">
+        <li ng-repeat="p in pageArray" ng-click="goToPage(p)" ng-class="{'active':currentPage == p}">
+            <a href="" >{{p}}</a>
+        </li>
+    </ul>
 </section>
 
 <aside class="col-xs-12 col-sm-3" style="padding: 20px;">
@@ -35,9 +40,9 @@
         <div class="panel-heading" style="text-align: center"><h4>Categories</h4></div>
         <div class="panel-body innerPanel">
             <ul class="list-group innerPanel">
-                <li class="list-group-item-success innerLi" ng-class="{ 'active': $index == selectedIndexCategory }" ng-click="getFilterByCatID(null);
+                <li class="list-group-item-success innerLi" ng-class="{ 'activeLink': $index == selectedIndexCategory }" ng-click="getFilterByCatID(null);
                                 categoryClicked($index)">All</li>
-                <li class="list-group-item-success innerLi" ng-class="{ 'active': $index == selectedIndexCategory }" ng-click="getFilterByCatID(cat.id);
+                <li class="list-group-item-success innerLi" ng-class="{ 'activeLink': $index == selectedIndexCategory }" ng-click="getFilterByCatID(cat.id);
                                 categoryClicked($index)"  ng-repeat="cat in categories">{{cat.name}}</li>
             </ul>
         </div>
@@ -47,10 +52,10 @@
         <div class="panel-heading" style="text-align: center"><h4>Towns</h4></div>
         <div class="panel-body innerPanel">
             <ul class="list-group innerPanel">
-                <li class="list-group-item-success innerLi" ng-class="{ 'active': $index == selectedIndex }"
+                <li class="list-group-item-success innerLi" ng-class="{ 'activeLink': $index == selectedIndex }"
                     ng-click="getFilterByTownID(null);
                                     itemClicked($index)" >All</li>
-                <li class="list-group-item-success innerLi" ng-class="{ 'active': $index == selectedIndex }"
+                <li class="list-group-item-success innerLi" ng-class="{ 'activeLink': $index == selectedIndex }"
                     ng-click="getFilterByTownID(town.id);
                                     itemClicked($index)" ng-repeat="town in towns">{{town.name}}</li>
             </ul>

@@ -3,14 +3,14 @@
     <h3>Navigation</h3>
     <hr class="hrStyle">
     <ul style="padding: 10px;text-align: left">
-        <li ng-class="{ 'active': 1 == link }" ng-click="linkClicked(1);
+        <li ng-class="{ 'activeLink': 1 == link }" ng-click="linkClicked(1);
                     changeView('/user/home')"><h4>Home</h4></li>
-        <li ng-class="{ 'active': 2 == link }" ng-click="linkClicked(2);
+        <li ng-class="{ 'activeLink': 2 == link }" ng-click="linkClicked(2);
                     changeView('/user/ads');
                     changeClass(1)"><h4>My Ads</h4></li>
-        <li ng-class="{ 'active': 3 == link }" ng-click="linkClicked(3);
+        <li ng-class="{ 'activeLink': 3 == link }" ng-click="linkClicked(3);
                     changeView('/user/ads/publish')"><h4>Publish New Ad</h4></li>
-        <li ng-class="{ 'active': 4 == link }" ng-click="linkClicked(4);
+        <li ng-class="{ 'activeLink': 4 == link }" ng-click="linkClicked(4);
                     changeView('/user/profile')"><h4>Edit Profile</h4></li>
     </ul>
 </nav>
@@ -36,6 +36,11 @@
             </div>
         </li>
     </ul>
+    <ul class="pagination">
+        <li ng-repeat="p in pageArray" ng-click="goToPage(p)" ng-class="{'active':currentPage == p}">
+            <a href="" >{{p}}</a>
+        </li>
+    </ul>
 </section>
 <aside class="col-xs-12 col-sm-3 pull-right" style="padding: 17px;" >
 
@@ -43,9 +48,9 @@
         <div class="panel-heading" style="text-align: center"><h4>Categories</h4></div>
         <div class="panel-body innerPanel">
             <ul class="list-group innerPanel">
-                <li class="list-group-item-success innerLi" ng-class="{ 'active': $index == selectedIndexCategory }" ng-click="getFilterByCatID(null);
+                <li class="list-group-item-success innerLi" ng-class="{ 'activeLink': $index == selectedIndexCategory }" ng-click="getFilterByCatID(null);
                             categoryClicked($index)">All</li>
-                <li class="list-group-item-success innerLi" ng-class="{ 'active': $index == selectedIndexCategory }" ng-click="getFilterByCatID(cat.id);
+                <li class="list-group-item-success innerLi" ng-class="{ 'activeLink': $index == selectedIndexCategory }" ng-click="getFilterByCatID(cat.id);
                             categoryClicked($index)"  ng-repeat="cat in categories">{{cat.name}}</li>
             </ul>
         </div>
@@ -55,10 +60,10 @@
         <div class="panel-heading" style="text-align: center"><h4>Towns</h4></div>
         <div class="panel-body innerPanel">
             <ul class="list-group innerPanel">
-                <li class="list-group-item-success innerLi" ng-class="{ 'active': $index == selectedIndex }"
+                <li class="list-group-item-success innerLi" ng-class="{ 'activeLink': $index == selectedIndex }"
                     ng-click="getFilterByTownID(null);
                                 itemClicked($index)" >All</li>
-                <li class="list-group-item-success innerLi" ng-class="{ 'active': $index == selectedIndex }"
+                <li class="list-group-item-success innerLi" ng-class="{ 'activeLink': $index == selectedIndex }"
                     ng-click="getFilterByTownID(town.id);
                                 itemClicked($index)" ng-repeat="town in towns">{{town.name}}</li>
             </ul>

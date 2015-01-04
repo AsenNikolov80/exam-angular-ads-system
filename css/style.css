@@ -138,9 +138,13 @@ body {
     text-align: right;
     width: 95.5%;
     margin: 10px; }
-  body .active {
+  body .activeLink {
     background-color: #d2585c;
     color: white; }
+  body .pagination > .active > a, body .pagination > .active > span, body .pagination > .active > a:hover,
+  body .pagination > .active > span:hover, body .pagination > .active > a:focus, body .pagination > .active > span:focus {
+    background-color: #d2585c;
+    border-color: #d2585c; }
   body .form {
     width: 50%;
     margin: 0 auto;
@@ -299,6 +303,12 @@ body {
       body .editProfileBut {
         font-size: 14px;
         width: 65%; } }
+  body .activePage {
+    background-color: none; }
+    body .activePage a {
+      background-color: #d2585c;
+      color: black;
+      font-weight: bolder; }
   body .infoMsg {
     position: fixed;
     top: 50px;
@@ -390,7 +400,7 @@ body {
 .admin header, .admin footer {
   background-color: #13ac3f;
   color: black; }
-.admin .active {
+.admin .activeLink {
   background-color: #13ac3f;
   color: black; }
 .admin .hrStyle {

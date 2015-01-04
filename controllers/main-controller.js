@@ -1,21 +1,39 @@
 'use strict';
 app.controller('Main', function ($scope, GetAds, $location) {
 //    $('header').empty();
-    if (localStorage.username && localStorage.token){
+    if (localStorage.username && localStorage.token) {
         $location.path('/user/home');
     }
-        if ($location.path() == '/') {
-            $('header').empty();
-            $('<div id="logo">').html('<h1>Ads - Home</h1>').appendTo($('header'));
-        }
+    if ($location.path() == '/') {
+        $('header').empty();
+        $('<div id="logo">').html('<h1>Ads - Home</h1>').appendTo($('header'));
+    }
 
     $scope.choise = {};
     GetAds.getCategories(function (resp) {
         $scope.categories = resp;
     });
-    GetAds.getAllAds(function (resp) {
+    GetAds.getAllAds(1, function (resp) {
         $scope.ads = resp.ads;
+        $scope.pages = resp.numPages;
+        getPages();
+        localStorage.currentPage = 1;
+        $scope.currentPage = localStorage.currentPage;
     });
+    function getPages() {
+        $scope.pageArray = [];
+        for (var i = 1; i <= $scope.pages; i++) {
+            $scope.pageArray.push(i);
+        }
+        console.log($scope.pageArray);
+    }
+    $scope.goToPage = function (page) {
+        GetAds.getAllAds(page, function (resp) {
+            $scope.ads = resp.ads;
+            localStorage.currentPage = page;
+            $scope.currentPage = localStorage.currentPage;
+        })
+    }
     GetAds.getTowns(function (resp) {
         $scope.towns = resp;
     })

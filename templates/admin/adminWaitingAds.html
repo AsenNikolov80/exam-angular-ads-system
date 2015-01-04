@@ -3,9 +3,9 @@
     <h3>Navigation</h3>
     <hr class="hrStyle">
     <ul style="padding: 10px;text-align: left">
-        <li ng-class="{ 'active': 1 == link }" ng-click="linkClicked(1);
+        <li ng-class="{ 'activeLink': 1 == link }" ng-click="linkClicked(1);
                     changeView('/admin/home')"><h4>List of Published Ads</h4></li>
-        <li ng-class="{ 'active': 2 == link }" ng-click="linkClicked(2);
+        <li ng-class="{ 'activeLink': 2 == link }" ng-click="linkClicked(2);
                     changeView('/admin/waitingAds')"><h4>WaitingApproval Ads</h4></li>
     </ul>
 </nav>

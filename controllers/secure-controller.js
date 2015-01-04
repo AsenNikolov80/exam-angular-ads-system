@@ -7,7 +7,7 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
     if (localStorage.admin) {
         $location.path('/admin/home');
     }
-    
+
 
     if ($location.path() == '/user/home') {
         $('#logo').html('<h1>Ads - Home</h1>');
@@ -34,11 +34,18 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
         $('#userInfo').remove();
         $location.path('#/');
     }
-    GetAds.getAdsOfUser(function (resp) {
+    GetAds.getAdsOfUser(1, function (resp) {
+        console.log(resp);
         $scope.adsByUser = resp.ads;
+        $scope.pages = resp.numPages;
+        getPages();
+        if (!localStorage.currentPage) {
+            localStorage.currentPage = 1;
+        }
+        $scope.currentPage = localStorage.currentPage;
 //        console.log($scope.adsByUser);
     });
-    
+
     $scope.selectedIndex = -1;
     $scope.selectedIndexCategory = -1;
     $scope.link = localStorage.link;
@@ -72,9 +79,42 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
     GetAds.getCategories(function (resp) {
         $scope.categories = resp;
     });
-    GetAds.getAllAds(function (resp) {
-        $scope.ads = resp.ads;
+    GetAds.getAllAds(1, function (resp) {
+        if ($location.path() == '/user/ads') {
+            return;
+        } else {
+            $scope.pages = resp.numPages;
+            $scope.ads = resp.ads;
+            getPages();
+            localStorage.currentPage = 1;
+            $scope.currentPage = localStorage.currentPage;
+        }
     });
+    function getPages() {
+        $scope.pageArray = [];
+        for (var i = 1; i <= $scope.pages; i++) {
+            $scope.pageArray.push(i);
+        }
+        console.log($scope.pageArray);
+    }
+    $scope.goToPage = function (page) {
+        GetAds.getAllAds(page, function (resp) {
+            $scope.ads = resp.ads;
+            localStorage.currentPage = page;
+            $scope.currentPage = localStorage.currentPage;
+            $location.path('/user/home');
+
+        })
+    }
+    $scope.goToPageUserAds = function (page) {
+        GetAds.getAdsOfUser(page, function (resp) {
+            $scope.pages = resp.numPages;
+            $scope.adsByUser = resp.ads;
+            localStorage.currentPage = page;
+            getPages();
+            $scope.currentPage = localStorage.currentPage;
+        })
+    }
     GetAds.getTowns(function (resp) {
         $scope.towns = resp;
     })

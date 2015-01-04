@@ -169,9 +169,14 @@ body{
         margin: 10px;
     }   
     .idle{}
-    .active{
+    .activeLink{
         background-color: #d2585c;
         color: white;
+    }
+    .pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover,
+    .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus{
+        background-color: #d2585c;
+        border-color: #d2585c;
     }
     .form{
         width: 50%;
@@ -354,6 +359,15 @@ body{
             width: 65%;
         }
     }
+    .activePage{
+        background-color: none;
+        a{
+            background-color: #d2585c;
+            color: black;
+            font-weight: bolder;    
+        }
+
+    }
     .infoMsg{
         position: fixed;
         top:50px;
@@ -464,7 +478,7 @@ body{
         background-color: #13ac3f;
         color: black;
     }
-    .active{
+    .activeLink{
         background-color: #13ac3f;
         color: black;
     }
