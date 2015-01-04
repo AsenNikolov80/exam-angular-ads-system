@@ -1,0 +1,43 @@
+<button ng-click="logout()" id="logout" class="btn-link">Logout</button>
+<nav class="col-xs-12 col-sm-2 navigation">
+    <h3>Navigation</h3>
+    <hr class="hrStyle">
+    <ul style="padding: 10px;text-align: left">
+        <li ng-class="{ 'active': 1 == link }" ng-click="linkClicked(1);
+                    changeView('/admin/home')"><h4>List of Published Ads</h4></li>
+        <li ng-class="{ 'active': 2 == link }" ng-click="linkClicked(2);
+                    changeView('/admin/waitingAds')"><h4>WaitingApproval Ads</h4></li>
+    </ul>
+</nav>
+<section class="col-xs-12 col-sm-10" style="display: inline-block;position: relative">
+    <ul>
+        <li ng-repeat="ad in allAds| filter:'WaitingApproval'" class="row userAd">
+            <div class="col-xs-12 col-sm-10 divInfoAdUser">
+                <div class="pull-left"><h2>{{ad.title}}</h2></div>                
+                <div class="pull-right">{{ad.date|date:'dd-MMM-yyyy'}}</div>
+                <div class="clearfix"></div>
+                <div class="imageDiv"><img ng-src="{{ad.imageDataUrl}}" alt="No image from user!" style="width: 100%" /></div>                
+                <div class="textDiv">
+                    {{ad.text}}
+                </div>
+                <div class="infoDiv">
+                    <div style="margin: 10px;">
+                        <h4>Town: </h4><span class="spanText2">{{ad.townName}}</span>
+                    </div>
+                    <div style="margin: 10px;">
+                        <h4>Category: </h4><span class="spanText2">{{ad.categoryName}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-2 statusDiv">
+                <strong>Status:</strong><br />
+                <div><span class="spanStatus">{{ad.status}}</span></div>
+                <!--ng-class="{'disabled':ad.status=='Inactive'}"-->
+                <button class="btn btn-danger deactivateBut" ng-if="ad.status == 'WaitingApproval'"  
+                        ng-click="approveAd(ad.id);changeView('/admin/home');" >Approve!</button>
+            </div>
+        </li>
+    </ul>
+</section>
+
+

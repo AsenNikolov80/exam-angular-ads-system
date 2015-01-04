@@ -93,7 +93,7 @@ body {
     padding: 10px;
     padding-right: 20px;
     text-align: center;
-    background-color: #ccc;
+    background-color: #bbb;
     margin: 3%; }
     @media all and (max-width: 768px) {
       body .profileDiv {
@@ -283,7 +283,7 @@ body {
     padding: 6px;
     border-radius: 10px;
     margin-top: 20px;
-    width: 60%; }
+    width: 65%; }
     @media all and (max-width: 1280px) {
       body .deactivateBut {
         font-size: 15px;
@@ -318,7 +318,7 @@ body {
     color: black;
     text-align: center;
     border-radius: 20px;
-    background-color: #ccc; }
+    background-color: #bbb; }
     @media all and (max-width: 768px) {
       body #deleteContainer {
         margin: 0; } }
@@ -385,5 +385,17 @@ body {
 
 * {
   box-sizing: border-box; }
+
+/*ADMIN PART*/
+.admin header, .admin footer {
+  background-color: #13ac3f;
+  color: black; }
+.admin .active {
+  background-color: #13ac3f;
+  color: black; }
+.admin .hrStyle {
+  border-top: 2px solid #13ac3f; }
+.admin .navigation {
+  background-color: #bbb; }
 
 /*# sourceMappingURL=style.css.map */

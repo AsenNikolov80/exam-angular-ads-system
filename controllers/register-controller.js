@@ -1,6 +1,8 @@
 'use strict';
 app.controller('Register', function ($scope, registerQuery, $location, GetAds) {
-    
+    if (localStorage.username && localStorage.token){
+        $location.path('/user/home');
+    }
     $('#logo').html('<h1>Ads - Register</h1>');
 
     GetAds.getTowns(function (resp) {

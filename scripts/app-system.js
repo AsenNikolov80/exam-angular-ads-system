@@ -22,13 +22,20 @@ app.config(function ($routeProvider) {
         templateUrl: 'templates/editLogged.html',
         controller: 'GetUserInfo'
     }).when('/user/ads/reload',{
-        redirectTo:'/user/ads'
+        redirectTo:'/user/ads',
+        controller: 'Secure'
     }).when('/user/ads/delete/:id',{
         templateUrl: 'templates/deleteAd.html',
         controller: 'DeleteAd'
     }).when('/user/ads/edit/:id',{
         templateUrl: 'templates/editAd.html',
         controller: 'EditAd'
+    }).when('/admin/home',{
+        templateUrl: 'templates/admin/adminHome.html',
+        controller: 'AdminHome'
+    }).when('/admin/waitingAds',{
+        templateUrl: 'templates/admin/adminWaitingAds.html',
+        controller: 'AdminHome'
     })
             .otherwise('/');
 });

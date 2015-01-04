@@ -1,10 +1,13 @@
 'use strict';
 app.controller('Main', function ($scope, GetAds, $location) {
 //    $('header').empty();
-    if ($location.path() == '/') {
-        $('header').empty();
-        $('<div id="logo">').html('<h1>Ads - Home</h1>').appendTo($('header'));
+    if (localStorage.username && localStorage.token){
+        $location.path('/user/home');
     }
+        if ($location.path() == '/') {
+            $('header').empty();
+            $('<div id="logo">').html('<h1>Ads - Home</h1>').appendTo($('header'));
+        }
 
     $scope.choise = {};
     GetAds.getCategories(function (resp) {

@@ -117,7 +117,7 @@ body{
         padding: 10px;
         padding-right: 20px;
         text-align: center;
-        background-color: #ccc;
+        background-color: #bbb;
         margin: 3%;
         @media all and (max-width: 768px){
             width: 95%;
@@ -336,7 +336,7 @@ body{
         padding: 6px;
         border-radius: 10px;
         margin-top: 20px;
-        width: 60%;
+        width: 65%;
         @media all and (max-width: 1280px){
             font-size:15px;
             padding:3px;
@@ -374,7 +374,7 @@ body{
         color: black;
         text-align: center;
         border-radius: 20px;
-        background-color: #ccc;
+        background-color: #bbb;
         @media all and (max-width: 768px){
             margin:0;
         }
@@ -458,6 +458,22 @@ body{
     box-sizing: border-box;
 }
 
-
+/*ADMIN PART*/
+.admin{
+    header,footer{
+        background-color: #13ac3f;
+        color: black;
+    }
+    .active{
+        background-color: #13ac3f;
+        color: black;
+    }
+    .hrStyle{
+        border-top: 2px solid #13ac3f;
+    }
+    .navigation{
+        background-color: #bbb;
+    }
+}
 
 

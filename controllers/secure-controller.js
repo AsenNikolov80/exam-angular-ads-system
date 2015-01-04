@@ -2,13 +2,17 @@
 app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
 
     if (!localStorage.username || !localStorage.token) {
-        $location.path('#/');
+        $location.path('/');
     }
-//    $('header').empty();
+    if (localStorage.admin) {
+        $location.path('/admin/home');
+    }
+    
+
     if ($location.path() == '/user/home') {
         $('#logo').html('<h1>Ads - Home</h1>');
     } else if ($location.path() == '/user/ads/publish') {
-        
+
         $('#logo').html('<h1>Ads - Publish New Ad</h1>');
     } else if ($location.path() == '/user/ads') {
         $('#logo').html('<h1>Ads - My Ads</h1>');
@@ -30,6 +34,11 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
         $('#userInfo').remove();
         $location.path('#/');
     }
+    GetAds.getAdsOfUser(function (resp) {
+        $scope.adsByUser = resp.ads;
+//        console.log($scope.adsByUser);
+    });
+    
     $scope.selectedIndex = -1;
     $scope.selectedIndexCategory = -1;
     $scope.link = localStorage.link;
@@ -69,10 +78,7 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
     GetAds.getTowns(function (resp) {
         $scope.towns = resp;
     })
-    GetAds.getAdsOfUser(function (resp) {
-        $scope.adsByUser = resp.ads;
-//        console.log($scope.adsByUser);
-    });
+
     $scope.getFilterByTownID = function (name) {
         if (name) {
             $scope.choise.townId = name;

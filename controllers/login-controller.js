@@ -1,6 +1,9 @@
 'use strict';
 app.controller('Login', function ($scope, loginQuery, $location) {
 //    $('#logout').remove();
+if (localStorage.username && localStorage.token){
+        $location.path('/user/home');
+    }
     $('#logo').empty();
     $('#logo').html('<h1>Ads - Login</h1>');
 
@@ -11,6 +14,9 @@ app.controller('Login', function ($scope, loginQuery, $location) {
                 localStorage.setItem('username', resp.username);
                 localStorage.link = 1;
                 localStorage.link2 = 1;
+                if (resp.isAdmin) {
+                    localStorage.admin = 1;
+                }
                 $location.path('user/home');
             }
         });
