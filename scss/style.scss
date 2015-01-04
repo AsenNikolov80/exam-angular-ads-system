@@ -40,7 +40,7 @@ body{
     }
     main{
         padding: 25px;
-        width: 100%;
+        width: 100%;        
     }
     .row{
         margin: 0 !important;
@@ -244,6 +244,9 @@ body{
             border: 1px solid white;
             transition: 0.9s;
         }
+        @media all and(max-width:512px){
+            font-size: 1.2em;    
+        }
     }
     .link{
         font-size: 20px;
@@ -252,6 +255,9 @@ body{
         padding:0px;
         &:hover{
             color: white;
+        }
+        @media all and(max-width:512px){
+            font-size:1em;
         }
     }
     .errorDiv{
