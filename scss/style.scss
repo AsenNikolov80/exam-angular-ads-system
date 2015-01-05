@@ -126,8 +126,8 @@ body{
     }
     .imageDiv{
         margin: 0 auto;
-/*        min-width: 200px;
-        min-height: 150px;*/
+        /*        min-width: 200px;
+                min-height: 150px;*/
         width: 37%;
         display: inline-block;
         vertical-align: top;
@@ -175,7 +175,7 @@ body{
         color: white;
     }
     .pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover,
-    .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus{
+        .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus{
         background-color: #d2585c;
         border-color: #d2585c;
     }
@@ -277,7 +277,7 @@ body{
         top:15px;
     }
     .navigation{
-        margin-top: 16px;
+        margin-top: 17px;
         border-radius: 10px;
         background-color: #aaa;
         padding: 10px;
@@ -372,8 +372,8 @@ body{
     .infoMsg{
         position: fixed;
         top:50px;
-        left: 30%;
-        width: 40%;
+        left: 25%;
+        width: 50%;
         padding: 10px;
         color: white;
         font-size: 25px;
@@ -381,6 +381,8 @@ body{
         @media all and (max-width: 1280px){
             font-size:18px;
             padding:3px;
+            left: 10%;
+            width: 80%;
         }
     }
     #deleteContainer{
@@ -413,13 +415,17 @@ body{
     .errorDivPublish{
         position:fixed;
         top:10%;
-        left:30%;
-        width:40%;
+        left:25%;
+        width:50%;
         padding:20px;
         font-size:26px;
         text-align:center;
         background-color: #d2585c;
         color: wheat;
+        @media all and (max-width: 1280px){
+            left:10%;
+            width:80%;
+        }
     }
     .image-box{
         width: 200px;

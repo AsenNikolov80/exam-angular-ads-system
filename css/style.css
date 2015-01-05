@@ -229,7 +229,7 @@ body {
     right: 110px;
     top: 15px; }
   body .navigation {
-    margin-top: 16px;
+    margin-top: 17px;
     border-radius: 10px;
     background-color: #aaa;
     padding: 10px;
@@ -313,8 +313,8 @@ body {
   body .infoMsg {
     position: fixed;
     top: 50px;
-    left: 30%;
-    width: 40%;
+    left: 25%;
+    width: 50%;
     padding: 10px;
     color: white;
     font-size: 25px;
@@ -322,7 +322,9 @@ body {
     @media all and (max-width: 1280px) {
       body .infoMsg {
         font-size: 18px;
-        padding: 3px; } }
+        padding: 3px;
+        left: 10%;
+        width: 80%; } }
   body #deleteContainer {
     margin: 0 15%;
     padding: 20px;
@@ -350,13 +352,17 @@ body {
   body .errorDivPublish {
     position: fixed;
     top: 10%;
-    left: 30%;
-    width: 40%;
+    left: 25%;
+    width: 50%;
     padding: 20px;
     font-size: 26px;
     text-align: center;
     background-color: #d2585c;
     color: wheat; }
+    @media all and (max-width: 1280px) {
+      body .errorDivPublish {
+        left: 10%;
+        width: 80%; } }
   body .image-box {
     width: 200px;
     height: 150px; }

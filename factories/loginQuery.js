@@ -25,6 +25,6 @@ app.factory('loginQuery', function ($http) {
     }
 
     return {
-        login: login,
+        login: login
     }
 })

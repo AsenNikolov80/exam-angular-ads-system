@@ -151,10 +151,16 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
     $scope.deactivateAd = deactivateAd;
     function deactivateAd(id) {
         GetAds.deactivateAd(id);
+        setTimeout(function () {
+            $location.path('/user/ads/reload');
+        }, 50);
     }
     $scope.rePublishAd = rePublishAd;
     function rePublishAd(id) {
         GetAds.rePublish(id);
+        setTimeout(function () {
+            $location.path('/user/ads/reload');
+        }, 50);
     }
     $scope.confirmDeleteAd = confirmDeleteAd;
     function confirmDeleteAd(id) {

@@ -12,7 +12,10 @@ app.factory('logoutQuery', function ($http) {
                     console.log(data);
                 })
                 .error(function (data, status, headers, config) {
-                    alert('unsuccessfull logout!');
+                    $('<div class="errorDivPublish">').text('Unsuccessful logout! Please try again!').appendTo('body');
+                    setTimeout(function () {
+                        $('.errorDivPublish').remove();
+                    }, 3000);
                 });
     }
     return {

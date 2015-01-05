@@ -11,16 +11,22 @@ app.factory('GetAds', function ($http, $location) {
                     success(data);
                 })
                 .error(function () {
-//                    alert('Can\'t load categories');
+                    $('<div class="errorDivPublish">').text('Can\'t get categories! Please try again!').appendTo('body');
+                    setTimeout(function () {
+                        $('.errorDivPublish').remove();
+                    }, 3000);
                 });
     }
-    function getAllAds(page,success) {
-        $http.get('http://softuni-ads.azurewebsites.net/api/ads?pagesize=10&startpage='+page)
+    function getAllAds(page, success) {
+        $http.get('http://softuni-ads.azurewebsites.net/api/ads?pagesize=10&startpage=' + page)
                 .success(function (data) {
                     success(data);
                 })
                 .error(function () {
-//                    alert('Can\'t load ads');
+                    $('<div class="errorDivPublish">').text('Can\'t get list of advertisement! Please try again!').appendTo('body');
+                    setTimeout(function () {
+                        $('.errorDivPublish').remove();
+                    }, 3000);
                 });
     }
 
@@ -30,7 +36,10 @@ app.factory('GetAds', function ($http, $location) {
                     success(data);
                 })
                 .error(function () {
-//                    alert('Can\'t load towns');
+                    $('<div class="errorDivPublish">').text('Can\'t get list of towns! Please try again!').appendTo('body');
+                    setTimeout(function () {
+                        $('.errorDivPublish').remove();
+                    }, 3000);
                 });
     }
     function getAdsOfUser(page, success) {
@@ -42,7 +51,10 @@ app.factory('GetAds', function ($http, $location) {
 //            console.log(data);
             success(data);
         }).error(function () {
-
+            $('<div class="errorDivPublish">').text('Can\'t get list of your ads! Please try again!').appendTo('body');
+            setTimeout(function () {
+                $('.errorDivPublish').remove();
+            }, 3000);
         })
     }
     function deactivateAd(id) {
@@ -56,7 +68,10 @@ app.factory('GetAds', function ($http, $location) {
                 $('.infoMsg').remove();
             }, 2000);
         }).error(function () {
-//            alert("can't deactivate");
+            $('<div class="errorDivPublish">').text('Can\'t deactivate ad! Please try again!').appendTo('body');
+            setTimeout(function () {
+                $('.errorDivPublish').remove();
+            }, 3000);
         })
     }
     function rePublish(id) {
@@ -70,7 +85,10 @@ app.factory('GetAds', function ($http, $location) {
                 $('.infoMsg').remove();
             }, 2000);
         }).error(function () {
-//            alert("can't re-publish!");
+            $('<div class="errorDivPublish">').text('Can\'t republish ad now! Please try again!').appendTo('body');
+            setTimeout(function () {
+                $('.errorDivPublish').remove();
+            }, 3000);
         })
     }
     function deleteAd(id) {
@@ -86,7 +104,10 @@ app.factory('GetAds', function ($http, $location) {
             localStorage.link2 = 1;
             $location.path('/user/ads');
         }).error(function () {
-//            alert("can't delete!");
+            $('<div class="errorDivPublish">').text('Can\'t delete ad now! Please try again!').appendTo('body');
+            setTimeout(function () {
+                $('.errorDivPublish').remove();
+            }, 3000);
         })
     }
     function editAd(id, editedAd) {
@@ -110,7 +131,10 @@ app.factory('GetAds', function ($http, $location) {
             localStorage.link2 = 1;
             $location.path('/user/ads');
         }).error(function () {
-//            alert("can't edit!");
+            $('<div class="errorDivPublish">').text('Can\'t edit ad now! Please try again!').appendTo('body');
+            setTimeout(function () {
+                $('.errorDivPublish').remove();
+            }, 3000);
         })
     }
     function getInfoForDeleteAd(id, success) {
@@ -122,7 +146,10 @@ app.factory('GetAds', function ($http, $location) {
 //            console.log(data);
             success(data);
         }).error(function () {
-
+            $('<div class="errorDivPublish">').text('Can\'t get info for requested ad now! Please try again!').appendTo('body');
+            setTimeout(function () {
+                $('.errorDivPublish').remove();
+            }, 3000);
         })
     }
     function createAd(ad) {
@@ -138,6 +165,7 @@ app.factory('GetAds', function ($http, $location) {
             }, 2000);
             localStorage.link2 = 1;
             localStorage.link = 2;
+
             $location.path('/user/ads');
         }).error(function () {
             $('<div class="errorDivPublish">').text('Advertisement has NOT created! Please try again!').appendTo('body');

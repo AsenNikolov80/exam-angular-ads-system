@@ -12,7 +12,10 @@ app.factory('getUserInfo', function ($http, $location) {
                     success(data);
                 })
                 .error(function () {
-
+                    $('<div class="errorDivPublish">').text('Can\'t get your details! Please try again!').appendTo('body');
+                    setTimeout(function () {
+                        $('.errorDivPublish').remove();
+                    }, 3000);
                 });
     }
     function updateUser(user) {
@@ -29,7 +32,10 @@ app.factory('getUserInfo', function ($http, $location) {
             localStorage.link = 1;
             $location.path('/user/home');
         }).error(function () {
-
+            $('<div class="errorDivPublish">').text('Can\'t update user data now! Please try again!').appendTo('body');
+            setTimeout(function () {
+                $('.errorDivPublish').remove();
+            }, 3000);
         })
     }
     function changePass(pass) {
