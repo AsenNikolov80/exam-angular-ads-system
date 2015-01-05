@@ -67,9 +67,9 @@ body {
     background-color: #e1dddd;
     padding: 8px;
     margin-bottom: 20px;
-    width: 62%;
+    width: 58%;
     font-size: 1em; }
-    @media all and (max-width: 1280px) {
+    @media all and (max-width: 896px) {
       body .textDiv {
         font-size: 0.9em;
         width: 97%; } }
@@ -101,15 +101,16 @@ body {
         margin-top: 10px; } }
   body .imageDiv {
     margin: 0 auto;
-    min-width: 200px;
-    min-height: 150px;
-    max-width: 32%;
+    /*        min-width: 200px;
+            min-height: 150px;*/
+    width: 37%;
     display: inline-block;
     vertical-align: top;
     margin-top: 20px; }
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 896px) {
       body .imageDiv {
-        min-height: 50px; } }
+        min-height: 50px;
+        width: 80%; } }
   body .spanText {
     background-color: #e1dddd;
     padding: 2px;
