@@ -13,19 +13,19 @@
         <h2>Register new user</h2>
         <hr class="hrStyle">
         <div style="display: inline-block;width: 45%;vertical-align: top">
-            <h3>Username</h3>
+            <h3>Username*</h3>
             <input type="text" class="input-lg" ng-model="user.username"  required=""/>
-            <h3>Name</h3>
+            <h3>Name*</h3>
             <input type="text" class="input-lg" ng-model="user.name" required=""/>
-            <h3>Phone</h3>
+            <h3>Phone*</h3>
             <input type="text" class="input-lg" ng-model="user.phone"  required=""/>
         </div>
         <div style="display: inline-block;width: 45%;vertical-align: top">
-            <h3>Password</h3>
+            <h3>Password*</h3>
             <input type="password" class="input-lg" ng-model="user.password"  required=""/>
-            <h3>Confirm password</h3>
+            <h3>Confirm password*</h3>
             <input type="password" class="input-lg" ng-model="user.confirmPassword"  required=""/>
-            <h3>Email</h3>
+            <h3>Email*</h3>
             <input type="email" class="input-lg" ng-model="user.email" required=""/>
             <h3>Town</h3>
             <br />
@@ -39,6 +39,8 @@
             <button class="btn login pull-left" style="width: 45%" ng-click="register(user)">Register</button>
             <a ng-href="#/login" class="link">Login here</a>
         </div>
+
+        <div style="font-size: 18px;"> <span style="font-size: 1.2em">*</span> - required field</div>
     </form>
 </section>
 
