@@ -8,7 +8,6 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
         $location.path('/admin/home');
     }
 
-
     if ($location.path() == '/user/home') {
         $('#logo').html('<h1>Ads - Home</h1>');
     } else if ($location.path() == '/user/ads/publish') {
@@ -35,11 +34,11 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
         $location.path('#/');
     }
 
-    GetAds.getAdsOfUser(1, function (resp) {
+    GetAds.getAdsOfUser(1, $scope.choiseTypeAd, function (resp) {
         if ($location.path() == '/user/home') {
             return;
-        } 
-            console.log(resp);
+        } else {
+//            console.log('getAdsOfUser');
             $scope.adsByUser = resp.ads;
             $scope.pages = resp.numPages;
             getPages();
@@ -48,9 +47,8 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
             }
             $scope.currentPage = localStorage.currentPage;
 //        console.log($scope.adsByUser);
-        
+        }
     });
-
 
     $scope.selectedIndex = -1;
     $scope.selectedIndexCategory = -1;
@@ -85,10 +83,11 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
     GetAds.getCategories(function (resp) {
         $scope.categories = resp;
     });
-    GetAds.getAllAds(1, function (resp) {
+    GetAds.getAllAds(1, $scope.choise, function (resp) {
         if ($location.path() == '/user/ads') {
             return;
         } else {
+//            console.log('getAllAds');
             $scope.pages = resp.numPages;
             $scope.ads = resp.ads;
             getPages();
@@ -101,19 +100,29 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
         for (var i = 1; i <= $scope.pages; i++) {
             $scope.pageArray.push(i);
         }
-        console.log($scope.pageArray);
+//        console.log($scope.pageArray);
     }
     $scope.goToPage = function (page) {
-        GetAds.getAllAds(page, function (resp) {
+//        if ($scope.choise != undefined && $scope.choise != '' && $scope.choise != null) {
+        GetAds.getAllAds(page, $scope.choise, function (resp) {
+//                console.log(resp.ads);
             $scope.ads = resp.ads;
+            $scope.pages = resp.numPages;
             localStorage.currentPage = page;
+            getPages();
             $scope.currentPage = localStorage.currentPage;
-            $location.path('/user/home');
-
         })
+//        } else {
+//            GetAds.getAllAds(page, function (resp) {
+//                $scope.ads = resp.ads;
+//                localStorage.currentPage = page;
+//                $scope.currentPage = localStorage.currentPage;
+//                $location.path('/user/home');
+//            })
+//        }
     }
     $scope.goToPageUserAds = function (page) {
-        GetAds.getAdsOfUser(page, function (resp) {
+        GetAds.getAdsOfUser(page, $scope.choiseTypeAd, function (resp) {
             $scope.pages = resp.numPages;
             $scope.adsByUser = resp.ads;
             localStorage.currentPage = page;
@@ -125,32 +134,64 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
         $scope.towns = resp;
     })
 
-    $scope.getFilterByTownID = function (name) {
-        if (name) {
-            $scope.choise.townId = name;
+    $scope.getFilterByTownID = function (id) {
+        if (id) {
+            $scope.choise.townId = id;
         }
         else {
             delete($scope.choise.townId);
         }
-        console.log($scope.choise);
+//        console.log($scope.choise);
+        GetAds.getAllAds(1, $scope.choise, function (resp) {
+//            console.log(resp.ads);
+            $scope.ads = resp.ads;
+            $scope.pages = resp.numPages;
+            localStorage.currentPage = 1;
+            getPages();
+            $scope.currentPage = localStorage.currentPage;
+        });
     }
-    $scope.getFilterByCatID = function (name) {
-        if (name) {
-            $scope.choise.categoryId = name;
+    $scope.getFilterByCatID = function (id) {
+        if (id) {
+            $scope.choise.categoryId = id;
         }
         else {
             delete($scope.choise.categoryId);
         }
-        console.log($scope.choise);
+//        console.log($scope.choise);
+        GetAds.getAllAds(1, $scope.choise, function (resp) {
+//            console.log(resp.ads);
+            $scope.ads = resp.ads;
+            $scope.pages = resp.numPages;
+            localStorage.currentPage = 1;
+            getPages();
+            $scope.currentPage = localStorage.currentPage;
+        });
     }
     $scope.choiseTypeAd = {};
     function choiseType(id) {
         if (id == 'all') {
             $scope.choiseTypeAd = {};
-            return;
+            GetAds.getAdsOfUser(1, $scope.choiseTypeAd, function (resp) {
+//            console.log(resp.ads);
+                $scope.adsByUser = resp.ads;
+                $scope.pages = resp.numPages;
+                localStorage.currentPage = 1;
+                getPages();
+                $scope.currentPage = localStorage.currentPage;
+            });
+        } else {
+            $scope.choiseTypeAd.status = id;
+//            console.log($scope.choiseTypeAd);
+            GetAds.getAdsOfUser(1, $scope.choiseTypeAd, function (resp) {
+//            console.log(resp.ads);
+                $scope.adsByUser = resp.ads;
+                $scope.pages = resp.numPages;
+                localStorage.currentPage = 1;
+                getPages();
+                $scope.currentPage = localStorage.currentPage;
+            });
         }
-        $scope.choiseTypeAd.status = id;
-        console.log($scope.choiseTypeAd);
     }
     $scope.choiseType = choiseType;
 
@@ -159,14 +200,14 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
         GetAds.deactivateAd(id);
         setTimeout(function () {
             $location.path('/user/ads/reload');
-        }, 50);
+        }, 100);
     }
     $scope.rePublishAd = rePublishAd;
     function rePublishAd(id) {
         GetAds.rePublish(id);
         setTimeout(function () {
             $location.path('/user/ads/reload');
-        }, 50);
+        }, 100);
     }
     $scope.confirmDeleteAd = confirmDeleteAd;
     function confirmDeleteAd(id) {
@@ -176,5 +217,4 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
     function confirmEditAd(id) {
         $location.path('/user/ads/edit/' + id);
     }
-
 });

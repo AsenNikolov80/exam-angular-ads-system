@@ -17,8 +17,23 @@ app.factory('GetAds', function ($http, $location) {
                     }, 3000);
                 });
     }
-    function getAllAds(page, success) {
-        $http.get('http://softuni-ads.azurewebsites.net/api/ads?pagesize=10&startpage=' + page)
+    function getAllAds(page, filter, success) {
+        if (!filter || filter == undefined || Object.keys(filter).length == 0) {
+            $http.get('http://softuni-ads.azurewebsites.net/api/ads?pagesize=5&startpage=' + page)
+                    .success(function (data) {
+                        success(data);
+                    })
+                    .error(function () {
+                        $('<div class="errorDivPublish">').text('Can\'t get list of advertisement! Please try again!').appendTo('body');
+                        setTimeout(function () {
+                            $('.errorDivPublish').remove();
+                        }, 3000);
+                    });
+        }else {
+            $http.get('http://softuni-ads.azurewebsites.net/api/ads?pagesize=5&startpage=' + page,
+                {
+                    params: filter
+                })
                 .success(function (data) {
                     success(data);
                 })
@@ -28,8 +43,12 @@ app.factory('GetAds', function ($http, $location) {
                         $('.errorDivPublish').remove();
                     }, 3000);
                 });
-    }
+        }
 
+    }
+    function getAllAdsWithFilters(page, filter, success) {
+        
+    }
     function getTowns(success) {
         $http.get('http://softuni-ads.azurewebsites.net/api/towns')
                 .success(function (data) {
@@ -42,20 +61,37 @@ app.factory('GetAds', function ($http, $location) {
                     }, 3000);
                 });
     }
-    function getAdsOfUser(page, success) {
+    function getAdsOfUser(page, filter, success) {
         getToken();
-        $http({
-            method: 'GET',
-            url: 'http://softuni-ads.azurewebsites.net/api/user/ads?pagesize=10&startpage=' + page
-        }).success(function (data) {
+//        console.log(filter);
+
+        if (!filter || filter == undefined || Object.keys(filter).length == 0) {
+            $http({
+                method: 'GET',
+                url: 'http://softuni-ads.azurewebsites.net/api/user/ads?pagesize=5&startpage=' + page
+            }).success(function (data) {
 //            console.log(data);
-            success(data);
-        }).error(function () {
-            $('<div class="errorDivPublish">').text('Can\'t get list of your ads! Please try again!').appendTo('body');
-            setTimeout(function () {
-                $('.errorDivPublish').remove();
-            }, 3000);
-        })
+                success(data);
+            }).error(function () {
+                $('<div class="errorDivPublish">').text('Can\'t get list of your ads! Please try again!').appendTo('body');
+                setTimeout(function () {
+                    $('.errorDivPublish').remove();
+                }, 3000);
+            });
+        } else {
+            $http({
+                method: 'GET',
+                url: 'http://softuni-ads.azurewebsites.net/api/user/ads?pagesize=5&startpage=' + page + '&status=' + filter.status
+            }).success(function (data) {
+//            console.log(data);
+                success(data);
+            }).error(function () {
+                $('<div class="errorDivPublish">').text('Can\'t get list of your ads! Please try again!').appendTo('body');
+                setTimeout(function () {
+                    $('.errorDivPublish').remove();
+                }, 3000);
+            });
+        }
     }
     function deactivateAd(id) {
         getToken();
@@ -177,6 +213,7 @@ app.factory('GetAds', function ($http, $location) {
     return {
         getCategories: getCategories,
         getAllAds: getAllAds,
+//        getAllAdsWithFilters: getAllAdsWithFilters,
         getTowns: getTowns,
         getAdsOfUser: getAdsOfUser,
         deactivateAd: deactivateAd,

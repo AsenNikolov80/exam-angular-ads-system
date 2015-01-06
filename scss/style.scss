@@ -178,6 +178,12 @@ body{
         .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus{
         background-color: #d2585c;
         border-color: #d2585c;
+        
+    }
+    .pagination *{
+        @media all and (max-width: 768px){
+            font-size:0.9em;
+        }
     }
     .form{
         width: 50%;

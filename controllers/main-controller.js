@@ -14,7 +14,7 @@ app.controller('Main', function ($scope, GetAds, $location) {
         $scope.categories = resp;
     });
     if ($location.path() != '/user/home') {
-        GetAds.getAllAds(1, function (resp) {
+        GetAds.getAllAds(1, $scope.choise, function (resp) {
             $scope.ads = resp.ads;
             $scope.pages = resp.numPages;
             getPages();
@@ -29,12 +29,25 @@ app.controller('Main', function ($scope, GetAds, $location) {
         }
         console.log($scope.pageArray);
     }
-    $scope.goToPage = function (page) {
-        GetAds.getAllAds(page, function (resp) {
+    $scope.goToPage = goToPage;
+    function goToPage(page) {
+//        if (Object.keys($scope.choise).length > 0) {
+        GetAds.getAllAds(page, $scope.choise, function (resp) {
+            $scope.pages = resp.numPages;
+            getPages();
             $scope.ads = resp.ads;
             localStorage.currentPage = page;
             $scope.currentPage = localStorage.currentPage;
         })
+//        } else {
+//            GetAds.getAllAds(page, function (resp) {
+//                $scope.pages = resp.numPages;
+//                getPages();
+//                $scope.ads = resp.ads;
+//                localStorage.currentPage = page;
+//                $scope.currentPage = localStorage.currentPage;
+//            })
+//        }
     }
     GetAds.getTowns(function (resp) {
         $scope.towns = resp;
@@ -47,6 +60,7 @@ app.controller('Main', function ($scope, GetAds, $location) {
             delete($scope.choise.townId);
         }
         console.log($scope.choise);
+        goToPage(1);
     }
     $scope.getFilterByCatID = function (name) {
         if (name) {
@@ -56,6 +70,7 @@ app.controller('Main', function ($scope, GetAds, $location) {
             delete($scope.choise.categoryId);
         }
         console.log($scope.choise);
+        goToPage(1);
     }
 
 
@@ -70,10 +85,7 @@ app.controller('Main', function ($scope, GetAds, $location) {
     $scope.categoryClicked = function ($index) {
         $scope.selectedIndexCategory = $index;
     };
-
     $scope.changeView = function (view) {
         $location.path(view);
     };
-
-
 });
