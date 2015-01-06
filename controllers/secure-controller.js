@@ -34,17 +34,23 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
         $('#userInfo').remove();
         $location.path('#/');
     }
+
     GetAds.getAdsOfUser(1, function (resp) {
-        console.log(resp);
-        $scope.adsByUser = resp.ads;
-        $scope.pages = resp.numPages;
-        getPages();
-        if (!localStorage.currentPage) {
-            localStorage.currentPage = 1;
-        }
-        $scope.currentPage = localStorage.currentPage;
+        if ($location.path() == '/user/home') {
+            return;
+        } 
+            console.log(resp);
+            $scope.adsByUser = resp.ads;
+            $scope.pages = resp.numPages;
+            getPages();
+            if (!localStorage.currentPage) {
+                localStorage.currentPage = 1;
+            }
+            $scope.currentPage = localStorage.currentPage;
 //        console.log($scope.adsByUser);
+        
     });
+
 
     $scope.selectedIndex = -1;
     $scope.selectedIndexCategory = -1;

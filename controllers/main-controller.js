@@ -13,13 +13,15 @@ app.controller('Main', function ($scope, GetAds, $location) {
     GetAds.getCategories(function (resp) {
         $scope.categories = resp;
     });
-    GetAds.getAllAds(1, function (resp) {
-        $scope.ads = resp.ads;
-        $scope.pages = resp.numPages;
-        getPages();
-        localStorage.currentPage = 1;
-        $scope.currentPage = localStorage.currentPage;
-    });
+    if ($location.path() != '/user/home') {
+        GetAds.getAllAds(1, function (resp) {
+            $scope.ads = resp.ads;
+            $scope.pages = resp.numPages;
+            getPages();
+            localStorage.currentPage = 1;
+            $scope.currentPage = localStorage.currentPage;
+        });
+    }
     function getPages() {
         $scope.pageArray = [];
         for (var i = 1; i <= $scope.pages; i++) {
