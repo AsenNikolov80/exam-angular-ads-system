@@ -149,6 +149,30 @@ body {
   @media all and (max-width: 768px) {
     body .pagination * {
       font-size: 0.9em; } }
+  @media all and (max-width: 520px) {
+    body .pagination * {
+      font-size: 0.75em; } }
+  @media all and (min-width: 1281px) {
+    body .pagination {
+      margin-left: 30%; } }
+  @media all and (max-width: 1280px) {
+    body .pagination {
+      margin-left: 20%; } }
+  @media all and (max-width: 1024px) {
+    body .pagination {
+      margin-left: 4%; } }
+  @media all and (max-width: 768px) {
+    body .pagination {
+      margin-left: 20%; } }
+  @media all and (max-width: 640px) {
+    body .pagination {
+      margin-left: 10%; } }
+  @media all and (max-width: 520px) {
+    body .pagination {
+      margin-left: 5%; } }
+  @media all and (max-width: 420px) {
+    body .pagination {
+      margin-left: 0; } }
   body .form {
     width: 50%;
     margin: 0 auto;

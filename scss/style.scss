@@ -178,11 +178,37 @@ body{
         .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus{
         background-color: #d2585c;
         border-color: #d2585c;
-        
+
     }
     .pagination *{
         @media all and (max-width: 768px){
             font-size:0.9em;
+        }
+        @media all and (max-width: 520px){
+            font-size:0.75em;
+        }
+    }.pagination{
+
+        @media all and (min-width: 1281px){
+            margin-left: 30%;
+        }
+        @media all and (max-width: 1280px){
+            margin-left: 20%;
+        }
+        @media all and (max-width: 1024px){
+            margin-left: 4%;
+        }
+        @media all and (max-width: 768px){
+            margin-left: 20%;
+        }
+        @media all and (max-width: 640px){
+            margin-left: 10%;
+        }
+        @media all and (max-width: 520px){
+            margin-left: 5%;
+        }
+        @media all and (max-width: 420px){
+            margin-left: 0;
         }
     }
     .form{

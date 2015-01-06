@@ -7,7 +7,8 @@
             <li ng-class="{ 'activeLink': 1 == link }" ng-click="linkClicked(1);
                                 changeView('/user/home')"><h4>Home</h4></li>
             <li ng-class="{ 'activeLink': 2 == link }" ng-click="linkClicked(2);
-                                changeView('/user/ads'); changeClass(1)"><h4>My Ads</h4></li>
+                                changeView('/user/ads');
+                                changeClass(1)"><h4>My Ads</h4></li>
             <li ng-class="{ 'activeLink': 3 == link }" ng-click="linkClicked(3);
                                 changeView('/user/ads/publish')"><h4>Publish New Ad</h4></li>
             <li ng-class="{ 'activeLink': 4 == link }" ng-click="linkClicked(4);
@@ -19,15 +20,15 @@
         <hr class="hrStyle">
         <ul style="padding: 10px;text-align: left;margin-bottom: 20px">
             <li ng-class="{ 'activeLink': 1 == link2 }" ng-click="choiseType('all');
-                                changeClass(1)"><h4>All</h4></li>
+                        changeClass(1)"><h4>All</h4></li>
             <li ng-class="{ 'activeLink': 2 == link2 }" ng-click="choiseType('Published');
-                                changeClass(2)"><h4>Published</h4></li>
+                        changeClass(2)"><h4>Published</h4></li>
             <li ng-class="{ 'activeLink': 3 == link2 }" ng-click="choiseType('WaitingApproval');
-                                changeClass(3)"><h4>Waiting approval</h4></li>
+                        changeClass(3)"><h4>Waiting approval</h4></li>
             <li ng-class="{ 'activeLink': 4 == link2 }" ng-click="choiseType('Inactive');
-                                changeClass(4)"><h4>Inactive</h4></li>
+                        changeClass(4)"><h4>Inactive</h4></li>
             <li ng-class="{ 'activeLink': 5 == link2 }" ng-click="choiseType('Rejected');
-                                changeClass(5)"><h4>Rejected</h4></li>
+                        changeClass(5)"><h4>Rejected</h4></li>
         </ul>
     </nav>
 </div>
@@ -59,15 +60,21 @@
                 <strong>Status:</strong><br />
                 <div><span class="spanStatus">{{ad.status}}</span></div>
                 <!--ng-class="{'disabled':ad.status=='Inactive'}"-->
-                <button class="btn btn-danger deactivateBut" ng-if="ad.status == 'Published' || ad.status == 'WaitingApproval'"  ng-click="deactivateAd(ad.id); changeClass(1); changeView('/user/ads/reload');" >Deactivate</button>
-                <button class="btn btn-danger deactivateBut" ng-if="ad.status == 'Inactive'||ad.status == 'Rejected'"  ng-click="confirmEditAd(ad.id)" >Edit</button>
-                <button class="btn btn-danger deactivateBut" ng-if="ad.status == 'Inactive'"  ng-click="rePublishAd(ad.id); changeClass(1); changeView('/user/ads/reload');" >Publish Again</button>
-                <button class="btn btn-danger deactivateBut" ng-if="ad.status == 'Inactive'||ad.status == 'Rejected'"  ng-click="confirmDeleteAd(ad.id)" >Delete</button>
+                <button class="btn btn-danger deactivateBut" ng-if="ad.status == 'Published' || ad.status == 'WaitingApproval'"  ng-click="deactivateAd(ad.id);
+                                changeClass(1);
+                                changeView('/user/ads/reload');" >Deactivate</button>
+                <button class="btn btn-danger deactivateBut" ng-if="ad.status == 'Inactive' || ad.status == 'Rejected'"  ng-click="confirmEditAd(ad.id)" >Edit</button>
+                <button class="btn btn-danger deactivateBut" ng-if="ad.status == 'Inactive'"  ng-click="rePublishAd(ad.id);
+                                changeClass(1);
+                                changeView('/user/ads/reload');" >Publish Again</button>
+                <button class="btn btn-danger deactivateBut" ng-if="ad.status == 'Inactive' || ad.status == 'Rejected'"  ng-click="confirmDeleteAd(ad.id)" >Delete</button>
             </div>
         </li>
     </ul>    
     <ul class="pagination">
-        <li ng-repeat="p in pageArray" ng-click="goToPageUserAds(p)" ng-class="{'active':currentPage == p}">
+        <li ng-if="p + 5 >= currentPage && p - 5 <= currentPage" ng-repeat="p in pageArray" ng-click="goToPageUserAds(p)"
+            
+            ng-class="{'active':currentPage == p}">
             <a href="" >{{p}}</a>
         </li>
     </ul>

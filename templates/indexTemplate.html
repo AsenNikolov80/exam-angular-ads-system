@@ -29,7 +29,8 @@
         </li>
     </ul>
     <ul class="pagination">
-        <li ng-repeat="p in pageArray" ng-click="goToPage(p)" ng-class="{'active':currentPage == p}">
+       <li ng-if="p + 5 >= currentPage && p - 5 <= currentPage" ng-repeat="p in pageArray" 
+            ng-click="goToPage(p)" ng-class="{'active':currentPage == p}">
             <a href="" >{{p}}</a>
         </li>
     </ul>
