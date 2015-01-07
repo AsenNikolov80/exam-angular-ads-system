@@ -7,7 +7,8 @@
 <section class="col-xs-12 col-sm-7" style="display: inline-block;position: relative">
     <span class="spanNoResult">No results!</span>
     <ul>
-        <li ng-repeat="ad in ads| filter:choise:true">
+        <li ng-repeat="ad in ads">
+            <!--| filter:choise:true-->
             <div class="adsDiv">
                 <div class="pull-left"><h2>{{ad.title}}</h2></div>                
                 <div class="pull-right">{{ad.date|date:'dd-MMM-yyyy'}}</div>

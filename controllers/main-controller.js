@@ -31,34 +31,27 @@ app.controller('Main', function ($scope, GetAds, $location) {
     }
     $scope.goToPage = goToPage;
     function goToPage(page) {
-//        if (Object.keys($scope.choise).length > 0) {
+        $('section ul').hide();
         GetAds.getAllAds(page, $scope.choise, function (resp) {
             $scope.pages = resp.numPages;
             getPages();
             $scope.ads = resp.ads;
             localStorage.currentPage = page;
             $scope.currentPage = localStorage.currentPage;
-        })
-//        } else {
-//            GetAds.getAllAds(page, function (resp) {
-//                $scope.pages = resp.numPages;
-//                getPages();
-//                $scope.ads = resp.ads;
-//                localStorage.currentPage = page;
-//                $scope.currentPage = localStorage.currentPage;
-//            })
-//        }
+        });
+        $('section ul').show();
     }
     GetAds.getTowns(function (resp) {
         $scope.towns = resp;
     })
-    $scope.getFilterByTownID = function (name) {
+    $scope.getFilterByTownID = function (name) {        
         if (name) {
             $scope.choise.townId = name;
         }
         else {
             delete($scope.choise.townId);
         }
+        
         console.log($scope.choise);
         goToPage(1);
     }

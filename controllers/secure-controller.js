@@ -141,15 +141,7 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
         else {
             delete($scope.choise.townId);
         }
-//        console.log($scope.choise);
-        GetAds.getAllAds(1, $scope.choise, function (resp) {
-//            console.log(resp.ads);
-            $scope.ads = resp.ads;
-            $scope.pages = resp.numPages;
-            localStorage.currentPage = 1;
-            getPages();
-            $scope.currentPage = localStorage.currentPage;
-        });
+        getAllAdsFiltered();
     }
     $scope.getFilterByCatID = function (id) {
         if (id) {
@@ -158,9 +150,10 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
         else {
             delete($scope.choise.categoryId);
         }
-//        console.log($scope.choise);
+        getAllAdsFiltered();
+    }
+    function getAllAdsFiltered(){
         GetAds.getAllAds(1, $scope.choise, function (resp) {
-//            console.log(resp.ads);
             $scope.ads = resp.ads;
             $scope.pages = resp.numPages;
             localStorage.currentPage = 1;
