@@ -46,9 +46,6 @@ app.factory('GetAds', function ($http, $location) {
         }
 
     }
-    function getAllAdsWithFilters(page, filter, success) {
-        
-    }
     function getTowns(success) {
         $http.get('http://softuni-ads.azurewebsites.net/api/towns')
                 .success(function (data) {

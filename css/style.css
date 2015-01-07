@@ -84,6 +84,9 @@ body {
     background-color: #aaa; }
     body .adsDiv li {
       cursor: default; }
+    @media all and (max-width: 768px) {
+      body .adsDiv {
+        margin-top: 4px; } }
   body .hrStyle {
     border-top: 2px solid #9d4145; }
   body .profileDiv {
@@ -195,14 +198,19 @@ body {
       font-size: 13px; } }
   body .spanNoResult {
     position: absolute;
-    top: 50px;
+    top: 40px;
     left: 210px;
+    background-color: #d2585c;
+    padding: 10px;
+    color: white;
     z-index: -1;
     font-size: 26px; }
     @media all and (max-width: 768px) {
       body .spanNoResult {
         font-size: 18px;
-        left: 110px; } }
+        left: 110px;
+        top: 10px;
+        padding: 4px; } }
   body .registerForm {
     width: 70%;
     margin: 0 auto;
@@ -373,10 +381,12 @@ body {
       body .selectInEdit {
         font-size: 12px; } }
   body .textArea {
-    min-width: 400px;
     background-color: #eee;
     min-height: 120px;
-    max-width: 70%; }
+    width: 170%; }
+    @media all and (max-width: 500px) {
+      body .textArea {
+        width: 120%; } }
   body .errorDivPublish {
     position: fixed;
     top: 10%;

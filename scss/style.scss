@@ -105,6 +105,9 @@ body{
         & li{
             cursor: default;
         }
+        @media all and (max-width:768px){
+            margin-top: 4px;
+        }
     }
     .hrStyle{
         border-top: 2px solid #9d4145;
@@ -238,13 +241,18 @@ body{
     }
     .spanNoResult{
         position: absolute;
-        top:50px;
+        top:40px;
         left: 210px;
+        background-color: #d2585c;
+        padding: 10px;
+        color: white;
         z-index: -1;
         font-size: 26px;
         @media all and (max-width:768px){
             font-size: 18px;
             left: 110px;
+            top:10px;
+            padding: 4px;
         }
     }
     .registerForm{
@@ -440,10 +448,12 @@ body{
         }
     }
     .textArea{
-        min-width: 400px;
         background-color: #eee;
         min-height: 120px;
-        max-width: 70%
+        width: 170%;
+        @media all and (max-width: 500px){
+            width: 120%;
+        }
     }
     .errorDivPublish{
         position:fixed;
