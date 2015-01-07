@@ -2,7 +2,7 @@
 <nav class="col-xs-12 col-sm-2 navigation">
     <h3>Navigation</h3>
     <hr class="hrStyle">
-    <ul style="padding: 10px;text-align: left">
+    <ul class="mainInfoUl">
         <li ng-class="{ 'activeLink': 1 == link }" ng-click="linkClicked(1);
                     changeView('/user/home')"><h4>Home</h4></li>
         <li ng-class="{ 'activeLink': 2 == link }" ng-click="linkClicked(2);
@@ -16,7 +16,7 @@
 </nav>
 <section class="col-xs-12 col-sm-7" style="display: inline-block;position: relative" >
     <span class="spanNoResult">No results yet!</span>
-    <ul>
+    <ul class="mainInfoUl">
         <li ng-repeat="ad in ads">
             <!--| filter:choise:true-->
             <div class="adsDiv">

@@ -2,7 +2,7 @@
 <nav class="col-xs-12 col-sm-2 navigation" ng-controller="Secure">
     <h3>Navigation</h3>
     <hr class="hrStyle">
-    <ul style="padding: 10px;text-align: left">
+    <ul class="ulAdsLogged">
         <li ng-class="{ 'activeLink': 1 == link }" ng-click="linkClicked(1);
                             changeView('/user/home')"><h4>Home</h4></li>
         <li ng-class="{ 'activeLink': 2 == link }" ng-click="linkClicked(2);

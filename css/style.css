@@ -52,11 +52,14 @@ body {
   body .innerPanel {
     padding: 0;
     margin: 0; }
+    @media all and (max-width: 768px) {
+      body .innerPanel {
+        text-align: center; } }
   body .innerLi {
     color: black;
     font-size: 15px;
     background-color: #aaa;
-    padding-left: 30px; }
+    padding-left: 15px; }
     body .innerLi:last-child {
       border-bottom-left-radius: 10px;
       border-bottom-right-radius: 10px; }
@@ -145,6 +148,19 @@ body {
   body .activeLink {
     background-color: #d2585c;
     color: white; }
+  body .mainInfoUl {
+    padding: 10px;
+    text-align: left; }
+    @media all and (max-width: 768px) {
+      body .mainInfoUl {
+        text-align: center; } }
+  body .ulAdsLogged {
+    padding: 10px;
+    text-align: left;
+    margin-bottom: 20px; }
+    @media all and (max-width: 768px) {
+      body .ulAdsLogged {
+        text-align: center; } }
   body .pagination > .active > a, body .pagination > .active > span, body .pagination > .active > a:hover,
   body .pagination > .active > span:hover, body .pagination > .active > a:focus, body .pagination > .active > span:focus {
     background-color: #d2585c;
