@@ -38,6 +38,7 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
         if ($location.path() == '/user/home') {
             return;
         } else {
+            $('section').hide();
 //            console.log('getAdsOfUser');
             $scope.adsByUser = resp.ads;
             $scope.pages = resp.numPages;
@@ -46,6 +47,7 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
                 localStorage.currentPage = 1;
             }
             $scope.currentPage = localStorage.currentPage;
+            $('section').show();
 //        console.log($scope.adsByUser);
         }
     });
@@ -88,11 +90,13 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
             return;
         } else {
 //            console.log('getAllAds');
+            $('section').hide();
             $scope.pages = resp.numPages;
             $scope.ads = resp.ads;
             getPages();
             localStorage.currentPage = 1;
             $scope.currentPage = localStorage.currentPage;
+            $('section').show();
         }
     });
     function getPages() {
@@ -104,6 +108,7 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
     }
     $scope.goToPage = function (page) {
 //        if ($scope.choise != undefined && $scope.choise != '' && $scope.choise != null) {
+        $('section').hide();
         GetAds.getAllAds(page, $scope.choise, function (resp) {
 //                console.log(resp.ads);
             $scope.ads = resp.ads;
@@ -111,7 +116,8 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
             localStorage.currentPage = page;
             getPages();
             $scope.currentPage = localStorage.currentPage;
-        })
+        });
+        $('section').show();
 //        } else {
 //            GetAds.getAllAds(page, function (resp) {
 //                $scope.ads = resp.ads;
@@ -122,13 +128,15 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
 //        }
     }
     $scope.goToPageUserAds = function (page) {
+        $('section').hide();
         GetAds.getAdsOfUser(page, $scope.choiseTypeAd, function (resp) {
             $scope.pages = resp.numPages;
             $scope.adsByUser = resp.ads;
             localStorage.currentPage = page;
             getPages();
             $scope.currentPage = localStorage.currentPage;
-        })
+        });
+        $('section').show();
     }
     GetAds.getTowns(function (resp) {
         $scope.towns = resp;
@@ -152,7 +160,8 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
         }
         getAllAdsFiltered();
     }
-    function getAllAdsFiltered(){
+    function getAllAdsFiltered() {
+        $('section').hide();
         GetAds.getAllAds(1, $scope.choise, function (resp) {
             $scope.ads = resp.ads;
             $scope.pages = resp.numPages;
@@ -160,6 +169,7 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
             getPages();
             $scope.currentPage = localStorage.currentPage;
         });
+        $('section').show();
     }
     $scope.choiseTypeAd = {};
     function choiseType(id) {

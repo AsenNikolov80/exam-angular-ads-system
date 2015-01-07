@@ -106,7 +106,7 @@ body{
             cursor: default;
         }
         @media all and (max-width:768px){
-            margin-top: 4px;
+            margin-top: 0px;
         }
     }
     .hrStyle{
@@ -242,7 +242,7 @@ body{
     .spanNoResult{
         position: absolute;
         top:40px;
-        left: 210px;
+        left: 40%;
         background-color: #d2585c;
         padding: 10px;
         color: white;
@@ -250,8 +250,8 @@ body{
         font-size: 26px;
         @media all and (max-width:768px){
             font-size: 18px;
-            left: 110px;
-            top:10px;
+            left: 40%;
+            top:30px;
             padding: 4px;
         }
     }

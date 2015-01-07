@@ -31,7 +31,7 @@ app.controller('Main', function ($scope, GetAds, $location) {
     }
     $scope.goToPage = goToPage;
     function goToPage(page) {
-        $('section ul').hide();
+        $('section').hide();
         GetAds.getAllAds(page, $scope.choise, function (resp) {
             $scope.pages = resp.numPages;
             getPages();
@@ -39,7 +39,7 @@ app.controller('Main', function ($scope, GetAds, $location) {
             localStorage.currentPage = page;
             $scope.currentPage = localStorage.currentPage;
         });
-        $('section ul').show();
+        $('section').show();
     }
     GetAds.getTowns(function (resp) {
         $scope.towns = resp;

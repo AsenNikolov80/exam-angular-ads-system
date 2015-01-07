@@ -86,7 +86,7 @@ body {
       cursor: default; }
     @media all and (max-width: 768px) {
       body .adsDiv {
-        margin-top: 4px; } }
+        margin-top: 0px; } }
   body .hrStyle {
     border-top: 2px solid #9d4145; }
   body .profileDiv {
@@ -199,7 +199,7 @@ body {
   body .spanNoResult {
     position: absolute;
     top: 40px;
-    left: 210px;
+    left: 40%;
     background-color: #d2585c;
     padding: 10px;
     color: white;
@@ -208,8 +208,8 @@ body {
     @media all and (max-width: 768px) {
       body .spanNoResult {
         font-size: 18px;
-        left: 110px;
-        top: 10px;
+        left: 40%;
+        top: 30px;
         padding: 4px; } }
   body .registerForm {
     width: 70%;
