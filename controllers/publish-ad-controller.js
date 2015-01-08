@@ -2,16 +2,16 @@ app.controller('PublishAd', function ($scope, GetAds, logoutQuery, $routeParams,
     if (!localStorage.username || !localStorage.token) {
         $location.path('#/');
     }
-    
+
     $scope.id = $routeParams.id;
-    
-   var userInfo = $('<div id="userInfo">').text(localStorage.getItem('username'));
+
+    var userInfo = $('<div id="userInfo">').text(localStorage.getItem('username'));
     $('#userInfo').remove();
     $('header').append(userInfo);
     var logoutLink = $('#logout');
     $('#logout').remove();
     logoutLink.appendTo($('header'));
-    
+
     $scope.logout = function () {
         logoutQuery.logout();
         localStorage.clear();
@@ -58,7 +58,7 @@ app.controller('PublishAd', function ($scope, GetAds, logoutQuery, $routeParams,
         localStorage.link = index;
     }
     $scope.linkClicked = linkClicked;
-
+    $scope.newAd = $scope.newAd || {};
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();

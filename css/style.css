@@ -87,6 +87,9 @@ body {
     background-color: #aaa; }
     body .adsDiv li {
       cursor: default; }
+    @media all and (max-width: 512px) {
+      body .adsDiv h2 {
+        font-size: 21px; } }
     @media all and (max-width: 768px) {
       body .adsDiv {
         margin-top: 0px; } }
@@ -149,7 +152,8 @@ body {
     background-color: #d2585c;
     color: white; }
   body .mainInfoUl {
-    padding: 10px;
+    padding-right: 10px;
+    padding-left: 15px;
     text-align: left; }
     @media all and (max-width: 768px) {
       body .mainInfoUl {
@@ -227,6 +231,12 @@ body {
         left: 40%;
         top: 30px;
         padding: 4px; } }
+    @media all and (max-width: 512px) {
+      body .spanNoResult {
+        font-size: 17px;
+        left: 30%;
+        top: 30px;
+        padding: 2px; } }
   body .registerForm {
     width: 70%;
     margin: 0 auto;

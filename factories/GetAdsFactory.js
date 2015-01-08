@@ -187,6 +187,7 @@ app.factory('GetAds', function ($http, $location) {
     }
     function createAd(ad) {
         getToken();
+        console.log(ad);
         $http({
             method: 'POST',
             url: 'http://softuni-ads.azurewebsites.net/api/user/ads',
