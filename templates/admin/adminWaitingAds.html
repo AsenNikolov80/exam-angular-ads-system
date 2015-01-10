@@ -11,14 +11,14 @@
 </nav>
 <section class="col-xs-12 col-sm-10" style="display: inline-block;position: relative">
     <ul>
-        <li ng-repeat="ad in allAds| filter:'WaitingApproval'" class="row userAd">
+        <li ng-repeat="ad in allAds" class="row userAd">
             <div class="col-xs-12 col-sm-10 divInfoAdUser">
                 <div class="pull-left"><h2>{{ad.title}}</h2></div>                
                 <div class="pull-right">{{ad.date|date:'dd-MMM-yyyy'}}</div>
                 <div class="clearfix"></div>
                 <div class="imageDiv">
                     <img ng-src="{{ad.imageDataUrl}}" alt="No image from user!" style="width: 100%"
-                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjMwMHB4IiB3aWR0aD0iMzAwcHgiIHZlcnNpb249IjEuMCIgdmlld0JveD0iLTMwMCAtMzAwIDYwMCA2MDAiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8Y2lyY2xlIHN0cm9rZT0iI0FBQSIgc3Ryb2tlLXdpZHRoPSIxMCIgcj0iMjgwIiBmaWxsPSIjRkZGIi8+Cjx0ZXh0IHN0eWxlPSJsZXR0ZXItc3BhY2luZzoxO3RleHQtYW5jaG9yOm1pZGRsZTt0ZXh0LWFsaWduOmNlbnRlcjtzdHJva2Utb3BhY2l0eTouNTtzdHJva2U6IzAwMDtzdHJva2Utd2lkdGg6MjtmaWxsOiM0NDQ7Zm9udC1zaXplOjM2MHB4O2ZvbnQtZmFtaWx5OkJpdHN0cmVhbSBWZXJhIFNhbnMsTGliZXJhdGlvbiBTYW5zLCBBcmlhbCwgc2Fucy1zZXJpZjtsaW5lLWhlaWdodDoxMjUlO3dyaXRpbmctbW9kZTpsci10YjsiIHRyYW5zZm9ybT0ic2NhbGUoLjIpIj4KPHRzcGFuIHk9Ii00MCIgeD0iOCI+Tk8gSU1BR0U8L3RzcGFuPgo8dHNwYW4geT0iNDAwIiB4PSI4Ij5BVkFJTEFCTEU8L3RzcGFuPgo8L3RleHQ+Cjwvc3ZnPg==" /></div>                
+                         src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjMwMHB4IiB3aWR0aD0iMzAwcHgiIHZlcnNpb249IjEuMCIgdmlld0JveD0iLTMwMCAtMzAwIDYwMCA2MDAiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8Y2lyY2xlIHN0cm9rZT0iI0FBQSIgc3Ryb2tlLXdpZHRoPSIxMCIgcj0iMjgwIiBmaWxsPSIjRkZGIi8+Cjx0ZXh0IHN0eWxlPSJsZXR0ZXItc3BhY2luZzoxO3RleHQtYW5jaG9yOm1pZGRsZTt0ZXh0LWFsaWduOmNlbnRlcjtzdHJva2Utb3BhY2l0eTouNTtzdHJva2U6IzAwMDtzdHJva2Utd2lkdGg6MjtmaWxsOiM0NDQ7Zm9udC1zaXplOjM2MHB4O2ZvbnQtZmFtaWx5OkJpdHN0cmVhbSBWZXJhIFNhbnMsTGliZXJhdGlvbiBTYW5zLCBBcmlhbCwgc2Fucy1zZXJpZjtsaW5lLWhlaWdodDoxMjUlO3dyaXRpbmctbW9kZTpsci10YjsiIHRyYW5zZm9ybT0ic2NhbGUoLjIpIj4KPHRzcGFuIHk9Ii00MCIgeD0iOCI+Tk8gSU1BR0U8L3RzcGFuPgo8dHNwYW4geT0iNDAwIiB4PSI4Ij5BVkFJTEFCTEU8L3RzcGFuPgo8L3RleHQ+Cjwvc3ZnPg==" /></div>                
                 <div class="textDiv">
                     {{ad.text}}
                 </div>
@@ -36,8 +36,15 @@
                 <div><span class="spanStatus">{{ad.status}}</span></div>
                 <!--ng-class="{'disabled':ad.status=='Inactive'}"-->
                 <button class="btn btn-danger deactivateBut" ng-if="ad.status == 'WaitingApproval'"  
-                        ng-click="approveAd(ad.id);changeView('/admin/home');" >Approve!</button>
+                        ng-click="approveAd(ad.id);
+                                        changeView('/admin/home');" >Approve!</button>
             </div>
+        </li>
+    </ul>
+    <ul class="pagination">
+        <li ng-if="p + 4 >= currentPage && p - 4 <= currentPage" ng-repeat="p in pageArray" 
+            ng-click="goToPage(p)" ng-class="{'active':currentPage == p}">
+            <a href="" >{{p}}</a>
         </li>
     </ul>
 </section>

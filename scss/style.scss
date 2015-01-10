@@ -87,6 +87,7 @@ body{
         margin-left: 10px;
         background-color: #e1dddd;
         padding: 8px;
+        word-break: break-all;
         margin-bottom: 20px;
         width: 59%;
         font-size: 1em;
@@ -207,16 +208,17 @@ body{
         border-color: #d2585c;
     }
     .pagination *{
-        @media all and (max-width: 768px){
+        @media all and (max-width: 832px){
             font-size:0.9em;
         }
         @media all and (max-width: 520px){
             font-size:0.75em;
         }
-    }.pagination{
+    }
+    .pagination{
 
         @media all and (min-width: 1281px){
-            margin-left: 30%;
+            margin-left: 25%;
         }
         @media all and (max-width: 1280px){
             margin-left: 20%;
@@ -232,9 +234,6 @@ body{
         }
         @media all and (max-width: 520px){
             margin-left: 5%;
-        }
-        @media all and (max-width: 420px){
-            margin-left: 0;
         }
     }
     .form{

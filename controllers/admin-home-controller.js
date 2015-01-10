@@ -24,6 +24,8 @@ app.controller('AdminHome', function ($scope, logoutQuery, adminGetAds, $locatio
         $('body').removeClass('admin');
         $location.path('#/');
     };
+    $scope.currentPage = 1;
+    localStorage.currentPage = $scope.currentPage;
     function linkClicked(index) {
         $scope.link = index;
         localStorage.link = index;
@@ -34,10 +36,52 @@ app.controller('AdminHome', function ($scope, logoutQuery, adminGetAds, $locatio
         $location.path(view);
     }
 
-    adminGetAds.getAllAds(function (resp) {
-        $scope.allAds = resp.ads;
-        console.log($scope.allAds);
+    adminGetAds.getPublishedAds(1, function (resp) {
+        if ($location.path() == '/admin/home') {
+            $scope.allAds = resp.ads;
+            $scope.pages = resp.numPages;
+            $scope.currentPage = 1;
+            localStorage.currentPage = $scope.currentPage;
+            getPages();
+            console.log($scope.allAds);
+        }
     });
+    adminGetAds.getWaitingApprovalAds(1, function (resp) {
+        if ($location.path() == '/admin/waitingAds') {
+            $scope.allAds = resp.ads;
+            $scope.pages = resp.numPages;
+            $scope.currentPage = 1;
+            localStorage.currentPage = $scope.currentPage;
+            getPages();
+            console.log($scope.allAds);
+        }
+    })
+    function getPages() {
+        $scope.pageArray = [];
+        for (var i = 1; i <= $scope.pages; i++) {
+            $scope.pageArray.push(i);
+        }
+    }
+    $scope.goToPage = function (page) {
+        if ($location.path() == '/admin/home') {
+            adminGetAds.getPublishedAds(page, function (resp) {
+                $scope.allAds = resp.ads;
+                $scope.pages = resp.numPages;
+                $scope.currentPage = page;
+                localStorage.currentPage = $scope.currentPage;
+                getPages();
+            })
+        }
+        else if($location.path() == '/admin/waitingAds'){
+            adminGetAds.getWaitingApprovalAds(page, function (resp) {
+                $scope.allAds = resp.ads;
+                $scope.pages = resp.numPages;
+                $scope.currentPage = page;
+                localStorage.currentPage = $scope.currentPage;
+                getPages();
+            })
+        }
+    }
     $scope.approveAd = function (id) {
         adminGetAds.approveAd(id);
     }

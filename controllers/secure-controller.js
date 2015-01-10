@@ -104,7 +104,6 @@ app.controller('Secure', function ($scope, GetAds, logoutQuery, $location) {
         for (var i = 1; i <= $scope.pages; i++) {
             $scope.pageArray.push(i);
         }
-//        console.log($scope.pageArray);
     }
     $scope.goToPage = function (page) {
 //        if ($scope.choise != undefined && $scope.choise != '' && $scope.choise != null) {

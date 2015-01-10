@@ -5,9 +5,19 @@ app.factory('adminGetAds', function ($http, $location) {
             return;
         $http.defaults.headers.common.Authorization = 'Bearer ' + token;
     }
-    function getAllAds(success) {
+    function getPublishedAds(page, success) {
         getToken();
-        $http.get('http://softuni-ads.azurewebsites.net/api/admin/ads')
+        $http.get('http://softuni-ads.azurewebsites.net/api/admin/ads?status=Published&pagesize=10&startpage=' + page)
+                .success(function (data) {
+                    success(data);
+                })
+                .error(function () {
+
+                })
+    }
+    function getWaitingApprovalAds(page, success) {
+        getToken();
+        $http.get('http://softuni-ads.azurewebsites.net/api/admin/ads?status=WaitingApproval&pagesize=10&startpage=' + page)
                 .success(function (data) {
                     success(data);
                 })
@@ -29,11 +39,11 @@ app.factory('adminGetAds', function ($http, $location) {
 
         })
     }
-    function deactivateAd(id){
+    function deactivateAd(id) {
         getToken();
         $http({
-            method:'PUT',
-            url:'http://softuni-ads.azurewebsites.net/api/admin/ads/reject/'+id
+            method: 'PUT',
+            url: 'http://softuni-ads.azurewebsites.net/api/admin/ads/reject/' + id
         }).success(function (data) {
             $('<div class="infoMsg">').text('Advertisement #' + id + ' was rejected!').appendTo('body');
             setTimeout(function () {
@@ -44,7 +54,9 @@ app.factory('adminGetAds', function ($http, $location) {
         })
     }
     return {
-        getAllAds: getAllAds,
-        approveAd: approveAd
+        getPublishedAds: getPublishedAds,
+        approveAd: approveAd,
+        deactivateAd: deactivateAd,
+        getWaitingApprovalAds: getWaitingApprovalAds
     }
 })

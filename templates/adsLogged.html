@@ -73,7 +73,7 @@
         </li>
     </ul>    
     <ul class="pagination">
-        <li ng-if="p + 5 >= currentPage && p - 5 <= currentPage" ng-repeat="p in pageArray" ng-click="goToPageUserAds(p)"
+        <li ng-if="p + 4 >= currentPage && p - 4 <= currentPage" ng-repeat="p in pageArray" ng-click="goToPageUserAds(p)"
             
             ng-class="{'active':currentPage == p}">
             <a href="" >{{p}}</a>

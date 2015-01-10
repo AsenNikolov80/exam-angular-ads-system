@@ -69,6 +69,7 @@ body {
     margin-left: 10px;
     background-color: #e1dddd;
     padding: 8px;
+    word-break: break-all;
     margin-bottom: 20px;
     width: 59%;
     font-size: 1em; }
@@ -169,7 +170,7 @@ body {
   body .pagination > .active > span:hover, body .pagination > .active > a:focus, body .pagination > .active > span:focus {
     background-color: #d2585c;
     border-color: #d2585c; }
-  @media all and (max-width: 768px) {
+  @media all and (max-width: 832px) {
     body .pagination * {
       font-size: 0.9em; } }
   @media all and (max-width: 520px) {
@@ -177,7 +178,7 @@ body {
       font-size: 0.75em; } }
   @media all and (min-width: 1281px) {
     body .pagination {
-      margin-left: 30%; } }
+      margin-left: 25%; } }
   @media all and (max-width: 1280px) {
     body .pagination {
       margin-left: 20%; } }
@@ -193,9 +194,6 @@ body {
   @media all and (max-width: 520px) {
     body .pagination {
       margin-left: 5%; } }
-  @media all and (max-width: 420px) {
-    body .pagination {
-      margin-left: 0; } }
   body .form {
     width: 50%;
     margin: 0 auto;
